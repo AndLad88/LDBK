@@ -21,12 +21,11 @@ npm run dev      # starta utvecklingsserver på http://localhost:3000
 
 ## Redigera innehåll
 
-Webbplatsen är en enkel landningssida med logotypen "LDBK" centrerad och adress och telefonnummer längst ned.
+Webbplatsen är en enkel landningssida med logotypen "LDBK" centrerad.
 
 Allt innehåll finns i **`src/data/content.ts`**:
 
 - `site` – företagsnamn, beskrivning (för sökmotorer) och **domän** (används för sitemap och Open Graph)
-- `contact` – adress och telefonnummer
 
 All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 

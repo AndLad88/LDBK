@@ -12,10 +12,3 @@ export const site = {
   description:
     "[PLATSHÅLLARE] LDBK – projektledning, byggledning, konstruktion och renovering.",
 };
-
-export const contact = {
-  address: "Bandholtzgatan 48, 43252 Varberg",
-  phone: "070 482 75 17",
-  // Telefonnumret i internationellt format för tel:-länkar.
-  phoneHref: "+46704827517",
-};
