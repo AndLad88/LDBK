@@ -11,9 +11,9 @@ export default function HomePage() {
         </h1>
       </main>
 
-      {/* Adress och telefonnummer i nedre högra hörnet */}
-      <footer className="absolute bottom-0 right-0 px-5 py-6 sm:px-8 sm:py-8 lg:px-12">
-        <address className="space-y-1 text-right not-italic">
+      {/* Adress och telefonnummer i nedre vänstra hörnet */}
+      <footer className="absolute bottom-0 left-0 px-5 py-6 sm:px-8 sm:py-8 lg:px-12">
+        <address className="text-[9px] leading-relaxed not-italic">
           <p>{contact.address}</p>
           <p>
             <a href={`tel:${contact.phoneHref}`} className="underline-offset-4 hover:underline">
