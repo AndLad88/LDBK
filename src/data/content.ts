@@ -14,16 +14,16 @@ export const site = {
 };
 
 export const contact = {
-  // [PLATSHÅLLARE] Byt ut mot riktiga kontaktuppgifter.
   address: {
-    street: "Exempelgatan 1",
-    postalCode: "111 22",
-    city: "Stockholm",
+    street: "Bandholtzgatan 48",
+    postalCode: "432 52",
+    city: "Varberg",
   },
-  phone: "08-123 45 67",
+  phone: "070 482 75 17",
   // Telefonnumret i internationellt format för tel:-länkar.
-  phoneHref: "+4681234567",
+  phoneHref: "+46704827517",
+  // [PLATSHÅLLARE] Byt ut mot riktig e-post och org.nr.
   email: "info@ldbk.se",
   orgNumber: "556000-0000",
-  openingHours: "Mån–fre 08.00–17.00",
+  openingHours: "Dygnet runt",
 };
