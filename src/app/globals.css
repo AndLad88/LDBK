@@ -47,3 +47,11 @@
     @apply bg-black text-white;
   }
 }
+
+/* Utskrift: varje visitkortssida blir exakt 85 × 55 mm utan marginaler */
+@media print {
+  @page {
+    size: 85mm 55mm;
+    margin: 0;
+  }
+}

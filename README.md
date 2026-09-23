@@ -21,15 +21,28 @@ npm run dev      # starta utvecklingsserver på http://localhost:3000
 
 ## Redigera innehåll
 
-Webbplatsen är en enkel landningssida med logotypen "LDBK" centrerad.
+Webbplatsen fungerar som ett digitalt visitkort i liggande format (85 × 55 mm): framsidan visar "LDBK" och baksidan tre QR-koder.
 
 Allt innehåll finns i **`src/data/content.ts`**:
 
-- `site` – företagsnamn, beskrivning (för sökmotorer) och **domän** (används för sitemap och Open Graph)
+- `site` – företagsnamn, beskrivning (för sökmotorer) och domän (`https://ldbk.se`)
+- `contactCard` – uppgifterna som sparas i telefonen när kontakt-QR-koden skannas
+- `social.instagram` – Instagram-adressen som `ldbk.se/instagram` vidarebefordrar till
 
 All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 
-Själva sidan finns i `src/app/page.tsx`. Loggan är just nu en textlogga – se `TODO` i filen för att byta till en riktig logotyp.
+## Visitkort och QR-koder
+
+| QR-kod    | Innehåll                                                                    |
+| --------- | --------------------------------------------------------------------------- |
+| Webb      | Öppnar `https://ldbk.se`                                                    |
+| Kontakt   | Ett vCard – telefonen erbjuder att spara kontakten direkt, även utan internet |
+| Instagram | Öppnar `https://ldbk.se/instagram`, som vidarebefordrar till Instagram        |
+
+- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/webb`, `/qr/kontakt` och `/qr/instagram`.
+- **Skriv ut visitkortet:** skriv ut startsidan från webbläsaren – varje sida blir exakt 85 × 55 mm (välj "Spara som PDF" för att få en fil till tryckeriet).
+- Webb- och Instagram-koderna fungerar först när sidan är publicerad på `ldbk.se`.
+- Kontaktkoden innehåller uppgifterna direkt. Ändras kontaktuppgifterna måste korten tryckas om.
 
 ## Projektstruktur
 
@@ -39,10 +52,12 @@ src/
 │   ├── page.tsx        # Landningssidan
 │   ├── layout.tsx      # Gemensam layout + metadata
 │   ├── not-found.tsx   # 404-sida
+│   ├── qr/[type]/      # Nedladdningsbara QR-koder (SVG)
 │   ├── globals.css     # Designsystem (Tailwind-tema: typsnitt, färger)
 │   ├── sitemap.ts      # Genererar /sitemap.xml
 │   └── robots.ts       # Genererar /robots.txt
-└── data/content.ts     # Allt redigerbart innehåll
+├── data/content.ts     # Allt redigerbart innehåll
+└── lib/qr.ts           # Skapar QR-koder och vCard
 ```
 
 ### Designsystem
@@ -59,4 +74,4 @@ Projektet använder Tailwind CSS v4, där temat konfigureras direkt i CSS i stä
 
 Varje ny push till huvudgrenen driftsätts sedan automatiskt, och andra grenar får egna förhandsversioner.
 
-> Innan lansering: uppdatera `site.url` i `src/data/content.ts` till den riktiga domänen, så att sitemap, canonical-länk och Open Graph blir rätt.
+> Koppla domänen `ldbk.se` (utan www) i Vercel, eftersom QR-koderna pekar dit. Lägg gärna till `www.ldbk.se` som omdirigering till `ldbk.se`.
