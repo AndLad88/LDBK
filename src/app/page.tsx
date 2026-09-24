@@ -41,12 +41,12 @@ export default async function HomePage() {
           </p>
         </header>
 
-        <div className="mt-8 w-full sm:mt-10 wide:mt-[6svh]">
+        <div className="-mx-4 mt-8 self-stretch sm:mx-0 sm:mt-10 sm:self-auto sm:w-full wide:mt-[6svh]">
           {/* QR-koder på en rad: en kolumn per kod (antalet styrs av lib/qr.ts) */}
           <h2 className="sr-only">QR codes</h2>
           <ul
             style={{ "--cols": codes.length } as CSSProperties}
-            className="mx-auto grid w-full max-w-md grid-cols-[repeat(var(--cols),minmax(0,1fr))] gap-x-2 sm:w-fit sm:max-w-none sm:grid-cols-[repeat(var(--cols),auto)] sm:gap-x-5 wide:gap-x-[2.6svh]"
+            className="mx-auto grid w-full max-w-md grid-cols-[repeat(var(--cols),minmax(0,1fr))] gap-x-1.5 sm:w-fit sm:max-w-none sm:grid-cols-[repeat(var(--cols),auto)] sm:gap-x-5 wide:gap-x-[2.6svh]"
           >
             {codes.map((code) => (
               <li key={code.type}>
@@ -54,7 +54,7 @@ export default async function HomePage() {
                   <div className="w-full max-w-9 sm:w-12 sm:max-w-none wide:w-[7svh]">
                     <QrImage svg={code.svg} label={code.description} />
                   </div>
-                  <figcaption className="mt-2 whitespace-nowrap text-[7px] uppercase tracking-normal sm:text-[9px] sm:tracking-[0.2em] wide:mt-[1.2svh] wide:text-[max(9px,1.05svh)]">
+                  <figcaption className="mt-2 whitespace-nowrap text-[7px] uppercase tracking-[-0.03em] sm:text-[9px] sm:tracking-[0.2em] wide:mt-[1.2svh] wide:text-[max(9px,1.05svh)]">
                     <a
                       href={code.href}
                       className="transition-opacity duration-200 hover:opacity-50"

@@ -3,6 +3,7 @@ import { contactCard, site } from "@/data/content";
 
 export type QrType =
   | "website"
+  | "projects"
   | "contact"
   | "linkedin"
   | "instagram"
@@ -48,6 +49,14 @@ export const qrCodes: Record<QrType, QrCode> = {
     href: "/",
     data: () => site.url,
     onCard: true,
+  },
+  projects: {
+    label: "Projects",
+    description: "QR code that opens LDBK projects",
+    // [PLATSHÅLLARE] Sidan /projects är en platshållare tills projekten finns
+    href: "/projects",
+    data: () => `${site.url}/projects`,
+    onCard: false,
   },
   contact: {
     label: "Contact",

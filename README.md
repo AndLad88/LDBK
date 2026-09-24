@@ -36,6 +36,7 @@ All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 | QR-kod    | Innehåll                                                                    |
 | --------- | --------------------------------------------------------------------------- |
 | Website   | Öppnar `https://ldbk.se`                                                    |
+| Projects  | Öppnar `https://ldbk.se/projects` – en platshållarsida tills projekten finns (bara på webbsidan) |
 | Contact   | Ett vCard – telefonen erbjuder att spara kontakten direkt, även utan internet |
 | LinkedIn  | Öppnar `https://ldbk.se/linkedin`, som vidarebefordrar till LinkedIn          |
 | Instagram | Öppnar `https://ldbk.se/instagram`, som vidarebefordrar till Instagram        |
@@ -43,7 +44,7 @@ All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 | Email     | Skapar ett mejl till e-postadressen (bara på webbsidan)                       |
 | SMS       | Skapar ett sms till telefonnumret (bara på webbsidan)                         |
 
-- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/website`, `/qr/contact`, `/qr/linkedin`, `/qr/instagram`, `/qr/call`, `/qr/email` och `/qr/sms`.
+- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/website`, `/qr/projects`, `/qr/contact`, `/qr/linkedin`, `/qr/instagram`, `/qr/call`, `/qr/email` och `/qr/sms`.
 - **Skriv ut visitkortet:** skriv ut startsidan från webbläsaren – varje sida blir exakt 85 × 55 mm (välj "Spara som PDF" för att få en fil till tryckeriet).
 - Website-, LinkedIn- och Instagram-koderna fungerar först när sidan är publicerad på `ldbk.se`.
 - Kontaktkoden innehåller uppgifterna direkt. Ändras kontaktuppgifterna måste korten tryckas om.
@@ -56,6 +57,7 @@ src/
 │   ├── page.tsx        # Landningssidan
 │   ├── layout.tsx      # Gemensam layout + metadata
 │   ├── not-found.tsx   # 404-sida
+│   ├── projects/       # Platshållarsida för projekt
 │   ├── qr/[type]/      # Nedladdningsbara QR-koder (SVG)
 │   ├── contact.vcf/    # Kontaktfil (etiketten "Contact")
 │   ├── globals.css     # Designsystem (Tailwind-tema: typsnitt, färger)
