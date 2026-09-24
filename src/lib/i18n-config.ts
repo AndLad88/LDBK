@@ -3,7 +3,7 @@
  * Själva översättningarna finns i i18n.ts.
  */
 
-export const locales = ["sv", "en", "de", "fr", "es", "it"] as const;
+export const locales = ["en", "de", "fr", "es", "it", "sv"] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = "en";
 export const LOCALE_COOKIE = "lang";
