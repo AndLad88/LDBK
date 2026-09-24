@@ -37,7 +37,7 @@ All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 | --------- | --------------------------------------------------------------------------- |
 | Website   | Öppnar `https://ldbk.se`                                                    |
 | Projects  | Öppnar `https://ldbk.se/projects` – en platshållarsida tills projekten finns (bara på webbsidan) |
-| Contact   | Ett vCard – telefonen erbjuder att spara kontakten direkt, även utan internet |
+| Contact   | Öppnar `https://ldbk.se/contact.vcf` – telefonen erbjuder att spara kontakten |
 | About     | Öppnar `https://ldbk.se/about` – en platshållarsida tills texten finns          |
 | Instagram | Öppnar `https://ldbk.se/instagram`, som vidarebefordrar till Instagram        |
 | Call      | Ringer upp telefonnumret (bara på webbsidan)                                  |
@@ -47,8 +47,9 @@ All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 - **Färger:** varje QR-kod har en egen färg på webbsidan (`color` i `src/lib/qr.ts`). Det tryckta visitkortet använder svarta koder.
 - **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/website`, `/qr/projects`, `/qr/contact`, `/qr/about`, `/qr/instagram`, `/qr/call`, `/qr/email` och `/qr/sms`.
 - **Skriv ut visitkortet:** skriv ut startsidan från webbläsaren – varje sida blir exakt 85 × 55 mm (välj "Spara som PDF" för att få en fil till tryckeriet).
-- Website-, Projects-, About- och Instagram-koderna fungerar först när sidan är publicerad på `ldbk.se`.
-- Kontaktkoden innehåller uppgifterna direkt. Ändras kontaktuppgifterna måste korten tryckas om.
+- Website-, About-, Contact-, Projects- och Instagram-koderna fungerar först när sidan är publicerad på `ldbk.se`.
+- Kontaktkoden pekar på kontaktfilen på hemsidan, så kontaktuppgifterna kan ändras i `content.ts` utan att korten trycks om.
+- Alla QR-koder har samma storlek (version 3, 29 × 29 rutor) så att de ser likadana ut.
 
 ## Projektstruktur
 

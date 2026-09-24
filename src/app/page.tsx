@@ -51,7 +51,7 @@ export default async function HomePage() {
           </p>
         </header>
 
-        <div className="-mx-4 mt-8 self-stretch sm:mx-0 sm:mt-10 sm:self-auto sm:w-full wide:mt-[6svh]">
+        <div className="-mx-4 mt-6 self-stretch sm:mx-0 sm:mt-8 sm:self-auto sm:w-full wide:mt-[4.5svh]">
           {/* QR-koder på en rad: en kolumn per kod (antalet styrs av lib/qr.ts) */}
           <h2 className="sr-only">QR codes</h2>
           <ul
