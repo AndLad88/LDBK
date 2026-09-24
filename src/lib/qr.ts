@@ -1,7 +1,14 @@
 import QRCode from "qrcode";
 import { contactCard, site } from "@/data/content";
 
-export type QrType = "hemsida" | "kontakt" | "linkedin" | "instagram";
+export type QrType =
+  | "hemsida"
+  | "kontakt"
+  | "linkedin"
+  | "instagram"
+  | "ring"
+  | "mejla"
+  | "sms";
 
 /** Escapar tecken som har särskild betydelse i vCard-format. */
 const vcardEscape = (value: string) => value.replace(/([\;,])/g, "\\$1");
@@ -29,6 +36,8 @@ type QrCode = {
   /** Vart etiketten under QR-koden länkar på webbsidan. */
   href: string;
   data: () => string;
+  /** Om koden ska tryckas på visitkortets baksida (annars bara på webbsidan). */
+  onCard: boolean;
 };
 
 /** Vad varje QR-kod innehåller och hur den beskrivs. Ordningen styr visningen. */
@@ -38,12 +47,14 @@ export const qrCodes: Record<QrType, QrCode> = {
     description: "QR-kod som öppnar ldbk.se",
     href: "/",
     data: () => site.url,
+    onCard: true,
   },
   kontakt: {
     label: "Kontakt",
     description: "QR-kod som sparar kontaktuppgifterna i telefonen",
     href: "/kontakt.vcf",
     data: buildVCard,
+    onCard: true,
   },
   linkedin: {
     label: "LinkedIn",
@@ -51,6 +62,7 @@ export const qrCodes: Record<QrType, QrCode> = {
     href: "/linkedin",
     // Pekar på egen domän som vidarebefordrar (se next.config.ts)
     data: () => `${site.url}/linkedin`,
+    onCard: true,
   },
   instagram: {
     label: "Instagram",
@@ -58,6 +70,29 @@ export const qrCodes: Record<QrType, QrCode> = {
     href: "/instagram",
     // Pekar på egen domän som vidarebefordrar (se next.config.ts)
     data: () => `${site.url}/instagram`,
+    onCard: true,
+  },
+  ring: {
+    label: "Ring",
+    description: "QR-kod som ringer upp LDBK",
+    href: `tel:${contactCard.phone}`,
+    data: () => `tel:${contactCard.phone}`,
+    onCard: false,
+  },
+  mejla: {
+    label: "Mejla",
+    description: "QR-kod som skapar ett mejl till LDBK",
+    href: `mailto:${contactCard.email}`,
+    data: () => `mailto:${contactCard.email}`,
+    onCard: false,
+  },
+  sms: {
+    label: "SMS",
+    description: "QR-kod som skapar ett sms till LDBK",
+    href: `sms:${contactCard.phone}`,
+    // SMSTO-formatet förstås av både iPhone och Android
+    data: () => `SMSTO:${contactCard.phone}:`,
+    onCard: false,
   },
 };
 

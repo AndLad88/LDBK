@@ -36,6 +36,8 @@ export default async function HomePage() {
   const codes = await Promise.all(
     qrTypes.map(async (type) => ({ type, svg: await qrSvg(type), ...qrCodes[type] })),
   );
+  const cardCodes = codes.filter((code) => code.onCard);
+  const actionCodes = codes.filter((code) => !code.onCard);
 
   return (
     <>
@@ -80,25 +82,27 @@ export default async function HomePage() {
             </ul>
           </nav>
 
-          {/* QR-koder */}
+          {/* QR-koder: länkar överst, ring/mejla/sms under */}
           <h2 className="sr-only">QR-koder</h2>
-          <ul className="mt-6 flex justify-center gap-5">
-            {codes.map((code) => (
-              <li key={code.type}>
-                <figure className="flex w-14 flex-col items-center">
-                  <QrImage svg={code.svg} label={code.description} />
-                  <figcaption className="mt-2 text-[9px] uppercase tracking-[0.2em]">
-                    <a
-                      href={code.href}
-                      className="underline decoration-neutral-400 underline-offset-4 hover:decoration-black"
-                    >
-                      {code.label}
-                    </a>
-                  </figcaption>
-                </figure>
-              </li>
-            ))}
-          </ul>
+          {[cardCodes, actionCodes].map((row, i) => (
+            <ul key={i} className={`flex justify-center gap-5 ${i === 0 ? "mt-6" : "mt-4"}`}>
+              {row.map((code) => (
+                <li key={code.type}>
+                  <figure className="flex w-14 flex-col items-center">
+                    <QrImage svg={code.svg} label={code.description} />
+                    <figcaption className="mt-2 text-[9px] uppercase tracking-[0.2em]">
+                      <a
+                        href={code.href}
+                        className="underline decoration-neutral-400 underline-offset-4 hover:decoration-black"
+                      >
+                        {code.label}
+                      </a>
+                    </figcaption>
+                  </figure>
+                </li>
+              ))}
+            </ul>
+          ))}
         </div>
       </main>
 
@@ -113,7 +117,7 @@ export default async function HomePage() {
       {/* Utskrift: baksida med QR-koder */}
       <section aria-hidden="true" className={printCard}>
         <ul className="grid grid-cols-4 gap-[4cqw]">
-          {codes.map((code) => (
+          {cardCodes.map((code) => (
             <li key={code.type}>
               <figure className="flex w-[17cqw] flex-col items-center">
                 <QrImage svg={code.svg} label={code.description} />

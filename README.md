@@ -40,8 +40,11 @@ All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 | Kontakt   | Ett vCard – telefonen erbjuder att spara kontakten direkt, även utan internet |
 | LinkedIn  | Öppnar `https://ldbk.se/linkedin`, som vidarebefordrar till LinkedIn          |
 | Instagram | Öppnar `https://ldbk.se/instagram`, som vidarebefordrar till Instagram        |
+| Ring      | Ringer upp telefonnumret (bara på webbsidan)                                  |
+| Mejla     | Skapar ett mejl till e-postadressen (bara på webbsidan)                       |
+| SMS       | Skapar ett sms till telefonnumret (bara på webbsidan)                         |
 
-- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/hemsida`, `/qr/kontakt`, `/qr/linkedin` och `/qr/instagram`.
+- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/hemsida`, `/qr/kontakt`, `/qr/linkedin`, `/qr/instagram`, `/qr/ring`, `/qr/mejla` och `/qr/sms`.
 - **Skriv ut visitkortet:** skriv ut startsidan från webbläsaren – varje sida blir exakt 85 × 55 mm (välj "Spara som PDF" för att få en fil till tryckeriet).
 - Hemsida-, LinkedIn- och Instagram-koderna fungerar först när sidan är publicerad på `ldbk.se`.
 - Kontaktkoden innehåller uppgifterna direkt. Ändras kontaktuppgifterna måste korten tryckas om.
