@@ -41,7 +41,7 @@ export default async function HomePage() {
           </p>
         </header>
 
-        <div className="mt-5 w-full sm:mt-6 wide:mt-[4svh]">
+        <div className="mt-8 w-full sm:mt-10 wide:mt-[6svh]">
           {/* QR-koder på en rad: en kolumn per kod (antalet styrs av lib/qr.ts) */}
           <h2 className="sr-only">QR codes</h2>
           <ul
