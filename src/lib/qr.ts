@@ -7,7 +7,7 @@ export type QrType = "webb" | "kontakt" | "instagram";
 const vcardEscape = (value: string) => value.replace(/([\;,])/g, "\\$1");
 
 /** Bygger ett vCard (3.0) som telefonen kan spara direkt som kontakt. */
-function buildVCard() {
+export function buildVCard() {
   const c = contactCard;
   return [
     "BEGIN:VCARD",

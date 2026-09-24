@@ -21,13 +21,14 @@ npm run dev      # starta utvecklingsserver på http://localhost:3000
 
 ## Redigera innehåll
 
-Webbplatsen fungerar som ett digitalt visitkort i liggande format (85 × 55 mm): framsidan visar "LDBK" och baksidan tre QR-koder.
+Webbplatsen är ett digitalt visitkort. Överst finns namn och titel, knappar för att ringa, mejla och sms:a, en knapp för att spara kontakten (`/kontakt.vcf`) och länkar till profiler. Under visas det tryckbara visitkortet i liggande format (85 × 55 mm): framsidan med "LDBK" och baksidan med tre QR-koder.
 
 Allt innehåll finns i **`src/data/content.ts`**:
 
 - `site` – företagsnamn, beskrivning (för sökmotorer) och domän (`https://ldbk.se`)
 - `contactCard` – uppgifterna som sparas i telefonen när kontakt-QR-koden skannas
 - `social.instagram` – Instagram-adressen som `ldbk.se/instagram` vidarebefordrar till
+- `socialLinks` – länkarna under "Länkar" (LinkedIn, portfolio, Instagram)
 
 All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 
@@ -53,6 +54,7 @@ src/
 │   ├── layout.tsx      # Gemensam layout + metadata
 │   ├── not-found.tsx   # 404-sida
 │   ├── qr/[type]/      # Nedladdningsbara QR-koder (SVG)
+│   ├── kontakt.vcf/    # Kontaktfil för "Spara kontakt"
 │   ├── globals.css     # Designsystem (Tailwind-tema: typsnitt, färger)
 │   ├── sitemap.ts      # Genererar /sitemap.xml
 │   └── robots.ts       # Genererar /robots.txt

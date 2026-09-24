@@ -34,3 +34,15 @@ export const social = {
   // TODO: [PLATSHÅLLARE] Byt till er riktiga Instagram-adress.
   instagram: "https://www.instagram.com/ldbk/",
 };
+
+/**
+ * Länkar till profiler, visas som knappar på sidan.
+ * Instagram går via ldbk.se/instagram (se `social.instagram` ovan).
+ */
+export const socialLinks = [
+  // TODO: [PLATSHÅLLARE] Byt till din riktiga LinkedIn-profil.
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/andreas-ladeborn" },
+  // TODO: [PLATSHÅLLARE] Byt till din riktiga portfolio.
+  { label: "Portfolio", href: "https://ldbk.se/portfolio" },
+  { label: "Instagram", href: "/instagram" },
+];
