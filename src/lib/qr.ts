@@ -29,9 +29,8 @@ export function buildVCard() {
   ].join("\r\n");
 }
 
+/** Etiketterna (på alla språk) finns i src/lib/i18n.ts. */
 type QrCode = {
-  label: string;
-  description: string;
   /** Vart etiketten under QR-koden länkar på webbsidan. */
   href: string;
   data: () => string;
@@ -47,16 +46,12 @@ type QrCode = {
 /** Vad varje QR-kod innehåller och hur den beskrivs. Ordningen styr visningen. */
 export const qrCodes: Record<QrType, QrCode> = {
   website: {
-    label: "Website",
-    description: "QR code that opens ldbk.se",
     href: "/",
     data: () => site.url,
     onCard: true,
     color: "#0e7490", // petrol
   },
   about: {
-    label: "About",
-    description: "QR code that opens About LDBK",
     // [PLATSHÅLLARE] Sidan /about är en platshållare tills texten finns
     href: "/about",
     data: () => `${site.url}/about`,
@@ -64,8 +59,6 @@ export const qrCodes: Record<QrType, QrCode> = {
     color: "#0a66c2", // blå
   },
   contact: {
-    label: "Contact",
-    description: "QR code that opens contact options: call, email, SMS and save contact",
     // Kontaktsidan samlar ring, mejla, sms och spara kontakt (vCard)
     href: "/contact",
     data: () => `${site.url}/contact`,
@@ -73,8 +66,6 @@ export const qrCodes: Record<QrType, QrCode> = {
     color: "#334155", // skiffergrå
   },
   projects: {
-    label: "Projects",
-    description: "QR code that opens LDBK projects",
     // [PLATSHÅLLARE] Sidan /projects är en platshållare tills projekten finns
     href: "/projects",
     data: () => `${site.url}/projects`,
@@ -82,8 +73,6 @@ export const qrCodes: Record<QrType, QrCode> = {
     color: "#b45309", // bärnsten
   },
   content: {
-    label: "Content",
-    description: "QR code that opens LDBK content",
     href: "/content",
     // Pekar på egen domän som vidarebefordrar (se next.config.ts)
     data: () => `${site.url}/content`,
@@ -91,8 +80,6 @@ export const qrCodes: Record<QrType, QrCode> = {
     color: "#c13584", // magenta
   },
   billing: {
-    label: "Billing",
-    description: "QR code that opens LDBK billing details",
     href: "/billing",
     data: () => `${site.url}/billing`,
     onCard: false,

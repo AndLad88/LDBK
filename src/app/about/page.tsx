@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
 import { SubPage } from "@/components/SubPage";
 import { site } from "@/data/content";
+import { getDictionary } from "@/lib/i18n";
 
 // [PLATSHÅLLARE] Ersätt med text om företaget när den finns.
-export const metadata: Metadata = {
-  title: `About | ${site.name}`,
-  description: `About ${site.name} – coming soon.`,
-  alternates: { canonical: "/about" },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { t } = await getDictionary();
+  return {
+    title: `${t.qr.about} | ${site.name}`,
+    description: `${t.qr.about} – ${t.comingSoon}.`,
+    alternates: { canonical: "/about" },
+  };
+}
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const { t } = await getDictionary();
   return (
-    <SubPage title="About">
-      <p className="mt-4 text-sm uppercase tracking-[0.2em]">Coming soon</p>
+    <SubPage title={t.qr.about}>
+      <p className="mt-4 text-sm uppercase tracking-[0.2em]">{t.comingSoon}</p>
     </SubPage>
   );
 }

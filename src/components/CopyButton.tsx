@@ -3,7 +3,17 @@
 import { useState } from "react";
 
 /** Kopierar ett värde till urklipp och visar en kort bekräftelse. */
-export function CopyButton({ value, label }: { value: string; label: string }) {
+export function CopyButton({
+  value,
+  label,
+  copyText,
+  copiedText,
+}: {
+  value: string;
+  label: string;
+  copyText: string;
+  copiedText: string;
+}) {
   const [copied, setCopied] = useState(false);
 
   async function copy() {
@@ -33,10 +43,10 @@ export function CopyButton({ value, label }: { value: string; label: string }) {
     <button
       type="button"
       onClick={copy}
-      aria-label={`Copy ${label}`}
+      aria-label={`${copyText}: ${label}`}
       className="shrink-0 border border-neutral-300 px-2 py-1 text-[10px] uppercase tracking-[0.15em] text-neutral-600 transition-colors duration-200 hover:border-black hover:text-black"
     >
-      <span aria-live="polite">{copied ? "Copied" : "Copy"}</span>
+      <span aria-live="polite">{copied ? copiedText : copyText}</span>
     </button>
   );
 }

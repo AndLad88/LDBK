@@ -1,17 +1,15 @@
 /**
  * Redigerbart innehåll för landningssidan/visitkortet.
  * Ändra uppgifterna här – komponenterna behöver inte röras.
+ * Översatta texter (tagline, etiketter m.m.) finns i src/lib/i18n.ts.
  *
  * Text markerad med [PLATSHÅLLARE] ska bytas ut mot riktigt innehåll.
  */
 
 export const site = {
   name: "LDBK",
-  // Visas under logotypen på visitkortets framsida
-  tagline: "Construction and building design solutions",
   url: "https://ldbk.se",
-  description:
-    "[PLATSHÅLLARE] LDBK – construction and building design solutions.",
+  // Tagline och övriga texter på alla språk finns i src/lib/i18n.ts
 };
 
 /** Kontaktuppgifter som sparas i telefonen när kontakt-QR-koden skannas. */

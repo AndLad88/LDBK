@@ -25,12 +25,21 @@ Webbplatsen är ett digitalt visitkort på en helsida, med texterna på engelska
 
 Allt innehåll finns i **`src/data/content.ts`**:
 
-- `site` – företagsnamn, beskrivning (för sökmotorer) och domän (`https://ldbk.se`)
+- `site` – företagsnamn och domän (`https://ldbk.se`)
 - `contactCard` – uppgifterna som sparas i telefonen när kontakt-QR-koden skannas
 - `billing` – faktureringsuppgifter (org.nr, VAT, bankgiro, IBAN m.m.). Tomma fält döljs.
 - `social.content` – adressen (t.ex. Instagram) som `ldbk.se/content` vidarebefordrar till
 
 All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
+
+## Språk
+
+Uppe till höger finns en språkväljare: **SV · EN · DE · FR · ES · IT**.
+
+- Alla texter på alla språk finns i **`src/lib/i18n.ts`** – ändra eller lägg till översättningar där.
+- Valt språk sparas i cookien `lang`. Vid första besöket används webbläsarens språk, annars engelska.
+- Adresserna är desamma på alla språk, så QR-koderna fungerar oavsett språk.
+- Vill du lägga till ett språk: lägg till koden i `src/lib/i18n-config.ts` och en ordlista i `i18n.ts`.
 
 ## Visitkort och QR-koder
 

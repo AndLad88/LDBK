@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { site } from "@/data/content";
+import { getDictionary } from "@/lib/i18n";
 import { qrCodes, qrSvg, qrTypes } from "@/lib/qr";
 
 /**
@@ -26,9 +27,12 @@ function QrImage({ svg, label }: { svg: string; label?: string }) {
 }
 
 export default async function HomePage() {
+  const { t } = await getDictionary();
   const codes = await Promise.all(
     qrTypes.map(async (type) => ({
       type,
+      label: t.qr[type],
+      description: `${t.qrCode}: ${t.qr[type]}`,
       svg: await qrSvg(type),
       // Svart variant till det tryckta visitkortet
       monoSvg: await qrSvg(type, { mono: true }),
@@ -47,13 +51,13 @@ export default async function HomePage() {
             {site.name}
           </h1>
           <p className="mt-[0.9em] text-[clamp(10px,2.2vw,13px)] uppercase tracking-[0.04em] sm:tracking-[0.2em] wide:mt-[2.2svh] wide:text-[max(12px,1.6svh)]">
-            {site.tagline}
+            {t.tagline}
           </p>
         </header>
 
         <div className="-mx-4 mt-6 self-stretch sm:mx-0 sm:mt-8 sm:self-auto sm:w-full wide:mt-[4.5svh]">
           {/* QR-koder på en rad: en kolumn per kod (antalet styrs av lib/qr.ts) */}
-          <h2 className="sr-only">QR codes</h2>
+          <h2 className="sr-only">{t.qrCodes}</h2>
           <ul
             style={{ "--cols": codes.length } as CSSProperties}
             className="mx-auto grid w-full max-w-md grid-cols-[repeat(var(--cols),minmax(0,1fr))] gap-x-1.5 sm:w-fit sm:max-w-none sm:grid-cols-[repeat(var(--cols),auto)] sm:gap-x-5 wide:gap-x-[2.6svh]"
@@ -85,7 +89,9 @@ export default async function HomePage() {
       <section aria-hidden="true" className={printCard}>
         <div className="text-center">
           <p className="text-[22cqw] font-bold leading-none tracking-tighter">{site.name}</p>
-          <p className="mt-[2.5cqw] whitespace-nowrap text-[2.1cqw] uppercase tracking-[0.12em]">{site.tagline}</p>
+          <p className="mx-auto mt-[2.5cqw] max-w-[80cqw] text-balance text-[2.1cqw] uppercase tracking-[0.12em]">
+            {t.tagline}
+          </p>
         </div>
       </section>
 
@@ -96,7 +102,7 @@ export default async function HomePage() {
             <li key={code.type}>
               <figure className="flex w-[17cqw] flex-col items-center">
                 <QrImage svg={code.monoSvg} label={code.description} />
-                <figcaption className="mt-[2.5cqw] text-[2.2cqw] uppercase tracking-[0.15em]">
+                <figcaption className="mt-[2.5cqw] whitespace-nowrap text-[1.8cqw] uppercase tracking-[0.05em]">
                   {code.label}
                 </figcaption>
               </figure>

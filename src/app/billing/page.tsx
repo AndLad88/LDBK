@@ -2,28 +2,34 @@ import type { Metadata } from "next";
 import { CopyButton } from "@/components/CopyButton";
 import { SubPage } from "@/components/SubPage";
 import { billing, site } from "@/data/content";
+import { getDictionary } from "@/lib/i18n";
 
-export const metadata: Metadata = {
-  title: `Billing | ${site.name}`,
-  description: `Billing and payment details for ${site.name}.`,
-  alternates: { canonical: "/billing" },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const { t } = await getDictionary();
+  return {
+    title: `${t.billing.title} | ${site.name}`,
+    description: t.billing.description,
+    alternates: { canonical: "/billing" },
+  };
+}
 
-/** Faktureringsuppgifter med engelska etiketter. */
-const rows = [
-  { label: "Company", value: billing.companyName },
-  { label: "Billing address", value: billing.address.join("\n") },
-  { label: "Company reg. no.", value: billing.orgNumber },
-  { label: "VAT no.", value: billing.vatNumber },
-  { label: "Bankgiro", value: billing.bankgiro },
-  { label: "Plusgiro", value: billing.plusgiro },
-  { label: "IBAN", value: billing.iban },
-  { label: "BIC", value: billing.bic },
-].filter((row) => row.value);
+export default async function BillingPage() {
+  const { t } = await getDictionary();
+  const b = t.billing;
+  // Tomma fält i content.ts döljs
+  const rows = [
+    { label: b.company, value: billing.companyName },
+    { label: b.address, value: billing.address.join("\n") },
+    { label: b.regNo, value: billing.orgNumber },
+    { label: b.vat, value: billing.vatNumber },
+    { label: b.bankgiro, value: billing.bankgiro },
+    { label: b.plusgiro, value: billing.plusgiro },
+    { label: b.iban, value: billing.iban },
+    { label: b.bic, value: billing.bic },
+  ].filter((row) => row.value);
 
-export default function BillingPage() {
   return (
-    <SubPage title="Billing">
+    <SubPage title={b.title}>
       <dl className="mt-10 w-full max-w-md divide-y divide-neutral-200 border-y border-neutral-200 text-left">
         {rows.map((row) => (
           <div
@@ -37,14 +43,12 @@ export default function BillingPage() {
               <span className="min-w-0 whitespace-pre-line text-sm [overflow-wrap:anywhere]">
                 {row.value}
               </span>
-              <CopyButton value={row.value} label={row.label} />
+              <CopyButton value={row.value} label={row.label} copyText={b.copy} copiedText={b.copied} />
             </dd>
           </div>
         ))}
       </dl>
-      <p className="mt-6 max-w-md text-xs text-neutral-500">
-        Payment details are always stated on our invoices. Contact us if anything differs.
-      </p>
+      <p className="mt-6 max-w-md text-xs text-neutral-500">{b.notice}</p>
     </SubPage>
   );
 }
