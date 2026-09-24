@@ -1,7 +1,7 @@
 import QRCode from "qrcode";
 import { contactCard, site } from "@/data/content";
 
-export type QrType = "webb" | "kontakt" | "instagram";
+export type QrType = "hemsida" | "kontakt" | "instagram";
 
 /** Escapar tecken som har särskild betydelse i vCard-format. */
 const vcardEscape = (value: string) => value.replace(/([\;,])/g, "\\$1");
@@ -25,14 +25,14 @@ export function buildVCard() {
 
 /** Vad varje QR-kod innehåller och hur den beskrivs. */
 export const qrCodes: Record<QrType, { label: string; description: string; data: () => string }> = {
-  webb: {
-    label: "Webb",
+  hemsida: {
+    label: "Hemsida",
     description: "QR-kod som öppnar ldbk.se",
     data: () => site.url,
   },
   kontakt: {
     label: "Kontakt",
-    description: `QR-kod som sparar ${contactCard.firstName} ${contactCard.lastName} som kontakt`,
+    description: "QR-kod som sparar kontaktuppgifterna i telefonen",
     data: buildVCard,
   },
   instagram: {

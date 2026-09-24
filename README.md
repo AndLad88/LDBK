@@ -21,7 +21,7 @@ npm run dev      # starta utvecklingsserver på http://localhost:3000
 
 ## Redigera innehåll
 
-Webbplatsen är ett digitalt visitkort på en helsida: överst "LDBK" med taglinen under, och under det namn och titel, knappar för att ringa, mejla och sms:a, en knapp för att spara kontakten (`/kontakt.vcf`), länkar till profiler och QR-koder. Vid utskrift blir sidan i stället ett tryckbart visitkort i liggande format (85 × 55 mm): framsidan med "LDBK" och baksidan med QR-koderna.
+Webbplatsen är ett digitalt visitkort på en helsida: överst "LDBK" med taglinen under, och under det knappar för att ringa, mejla och sms:a, en knapp för att spara kontakten (`/kontakt.vcf`), länkar till profiler och QR-koder. Vid utskrift blir sidan i stället ett tryckbart visitkort i liggande format (85 × 55 mm): framsidan med "LDBK" och baksidan med QR-koderna.
 
 Allt innehåll finns i **`src/data/content.ts`**:
 
@@ -36,13 +36,13 @@ All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 
 | QR-kod    | Innehåll                                                                    |
 | --------- | --------------------------------------------------------------------------- |
-| Webb      | Öppnar `https://ldbk.se`                                                    |
+| Hemsida   | Öppnar `https://ldbk.se`                                                    |
 | Kontakt   | Ett vCard – telefonen erbjuder att spara kontakten direkt, även utan internet |
 | Instagram | Öppnar `https://ldbk.se/instagram`, som vidarebefordrar till Instagram        |
 
-- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/webb`, `/qr/kontakt` och `/qr/instagram`.
+- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/hemsida`, `/qr/kontakt` och `/qr/instagram`.
 - **Skriv ut visitkortet:** skriv ut startsidan från webbläsaren – varje sida blir exakt 85 × 55 mm (välj "Spara som PDF" för att få en fil till tryckeriet).
-- Webb- och Instagram-koderna fungerar först när sidan är publicerad på `ldbk.se`.
+- Hemsida- och Instagram-koderna fungerar först när sidan är publicerad på `ldbk.se`.
 - Kontaktkoden innehåller uppgifterna direkt. Ändras kontaktuppgifterna måste korten tryckas om.
 
 ## Projektstruktur

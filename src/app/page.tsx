@@ -52,16 +52,9 @@ export default async function HomePage() {
         </header>
 
         <div className="mx-auto w-full max-w-sm pb-10 text-center">
-          {/* Namn och titel */}
-          <h2 className="text-2xl tracking-tight">
-            {contactCard.firstName} {contactCard.lastName}
-          </h2>
-          <p className={`mt-1 text-neutral-600 ${small}`}>
-            {contactCard.title}, {contactCard.organization}
-          </p>
-
           {/* Kontaktknappar och Spara kontakt (vCard) */}
-          <ul className="mt-6 grid grid-cols-3 gap-2">
+          <h2 className="sr-only">Kontakt</h2>
+          <ul className="grid grid-cols-3 gap-2">
             {contactButtons.map((button) => (
               <li key={button.label}>
                 <a href={button.href} className={`${buttonBase} ${outline}`}>
