@@ -21,7 +21,10 @@ export default async function HomePage() {
       {/* Framsida */}
       <section aria-label="Visitkort, framsida" className={card}>
         {/* TODO: Ersätt textloggan med en riktig logotyp (t.ex. next/image med SVG) */}
-        <h1 className="text-[22cqw] leading-none tracking-tighter">{site.name}</h1>
+        <div className="text-center">
+          <h1 className="text-[22cqw] leading-none tracking-tighter">{site.name}</h1>
+          <p className="mt-[2cqw] text-[3.4cqw] tracking-wide">{site.tagline}</p>
+        </div>
       </section>
 
       {/* Baksida med QR-koder */}

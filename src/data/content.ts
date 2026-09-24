@@ -7,6 +7,8 @@
 
 export const site = {
   name: "LDBK",
+  // Visas under logotypen på visitkortets framsida
+  tagline: "Construction and design solutions",
   url: "https://ldbk.se",
   description:
     "[PLATSHÅLLARE] LDBK – projektledning, byggledning, konstruktion och renovering.",
