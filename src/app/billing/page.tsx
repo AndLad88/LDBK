@@ -9,16 +9,16 @@ export const metadata: Metadata = {
   alternates: { canonical: "/billing" },
 };
 
-/** Faktureringsuppgifter: engelsk etikett, svensk term i liten text under. */
+/** Faktureringsuppgifter med engelska etiketter. */
 const rows = [
-  { label: "Company", sv: "Företag", value: billing.companyName },
-  { label: "Billing address", sv: "Faktureringsadress", value: billing.address.join("\n") },
-  { label: "Company reg. no.", sv: "Organisationsnummer", value: billing.orgNumber },
-  { label: "VAT no.", sv: "Momsregistreringsnummer", value: billing.vatNumber },
-  { label: "Bankgiro", sv: "Bankgiro", value: billing.bankgiro },
-  { label: "Plusgiro", sv: "Plusgiro", value: billing.plusgiro },
-  { label: "IBAN", sv: "IBAN", value: billing.iban },
-  { label: "BIC", sv: "BIC/SWIFT", value: billing.bic },
+  { label: "Company", value: billing.companyName },
+  { label: "Billing address", value: billing.address.join("\n") },
+  { label: "Company reg. no.", value: billing.orgNumber },
+  { label: "VAT no.", value: billing.vatNumber },
+  { label: "Bankgiro", value: billing.bankgiro },
+  { label: "Plusgiro", value: billing.plusgiro },
+  { label: "IBAN", value: billing.iban },
+  { label: "BIC", value: billing.bic },
 ].filter((row) => row.value);
 
 export default function BillingPage() {
@@ -32,7 +32,6 @@ export default function BillingPage() {
           >
             <dt className="shrink-0">
               <span className="block text-xs uppercase tracking-[0.15em]">{row.label}</span>
-              <span className="block text-[10px] text-neutral-500">{row.sv}</span>
             </dt>
             <dd className="flex min-w-0 items-start justify-between gap-3 sm:justify-end sm:text-right">
               <span className="min-w-0 whitespace-pre-line text-sm [overflow-wrap:anywhere]">
