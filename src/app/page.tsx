@@ -82,13 +82,18 @@ export default async function HomePage() {
 
           {/* QR-koder */}
           <h2 className="sr-only">QR-koder</h2>
-          <ul className="mt-6 flex justify-center gap-6">
+          <ul className="mt-6 flex justify-center gap-5">
             {codes.map((code) => (
               <li key={code.type}>
                 <figure className="flex w-14 flex-col items-center">
                   <QrImage svg={code.svg} label={code.description} />
-                  <figcaption className="mt-2 text-[9px] uppercase tracking-[0.2em] text-neutral-600">
-                    {code.label}
+                  <figcaption className="mt-2 text-[9px] uppercase tracking-[0.2em]">
+                    <a
+                      href={code.href}
+                      className="underline decoration-neutral-400 underline-offset-4 hover:decoration-black"
+                    >
+                      {code.label}
+                    </a>
                   </figcaption>
                 </figure>
               </li>
@@ -107,12 +112,12 @@ export default async function HomePage() {
 
       {/* Utskrift: baksida med QR-koder */}
       <section aria-hidden="true" className={printCard}>
-        <ul className="grid grid-cols-3 gap-[7cqw]">
+        <ul className="grid grid-cols-4 gap-[4cqw]">
           {codes.map((code) => (
             <li key={code.type}>
-              <figure className="flex w-[21cqw] flex-col items-center">
+              <figure className="flex w-[17cqw] flex-col items-center">
                 <QrImage svg={code.svg} label={code.description} />
-                <figcaption className="mt-[2.5cqw] text-[2.6cqw] uppercase tracking-[0.2em]">
+                <figcaption className="mt-[2.5cqw] text-[2.2cqw] uppercase tracking-[0.15em]">
                   {code.label}
                 </figcaption>
               </figure>

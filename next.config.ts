@@ -4,8 +4,9 @@ import { social } from "./src/data/content";
 const nextConfig: NextConfig = {
   async redirects() {
     return [
-      // Instagram-QR-koden pekar hit, så att länken kan ändras i efterhand
+      // QR-koderna pekar hit, så att länkarna kan ändras i efterhand
       { source: "/instagram", destination: social.instagram, permanent: false },
+      { source: "/linkedin", destination: social.linkedin, permanent: false },
     ];
   },
 };

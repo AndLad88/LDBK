@@ -26,22 +26,24 @@ export const contactCard = {
   website: "https://ldbk.se",
 };
 
+/**
+ * QR-koderna pekar på ldbk.se/instagram och ldbk.se/linkedin, som
+ * vidarebefordras hit (se next.config.ts). Därför kan länkarna ändras
+ * utan att visitkorten behöver tryckas om.
+ */
 export const social = {
-  /**
-   * QR-koden pekar på ldbk.se/instagram, som vidarebefordras hit.
-   * Därför kan länken ändras utan att visitkorten behöver tryckas om.
-   */
   // TODO: [PLATSHÅLLARE] Byt till er riktiga Instagram-adress.
   instagram: "https://www.instagram.com/ldbk/",
+  // TODO: [PLATSHÅLLARE] Byt till din riktiga LinkedIn-profil.
+  linkedin: "https://www.linkedin.com/in/andreas-ladeborn",
 };
 
 /**
  * Länkar till profiler, visas som knappar på sidan.
- * Instagram går via ldbk.se/instagram (se `social.instagram` ovan).
+ * LinkedIn och Instagram går via egna adresser (se `social` ovan).
  */
 export const socialLinks = [
-  // TODO: [PLATSHÅLLARE] Byt till din riktiga LinkedIn-profil.
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/andreas-ladeborn" },
+  { label: "LinkedIn", href: "/linkedin" },
   // TODO: [PLATSHÅLLARE] Byt till din riktiga portfolio.
   { label: "Portfolio", href: "https://ldbk.se/portfolio" },
   { label: "Instagram", href: "/instagram" },

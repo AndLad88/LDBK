@@ -27,7 +27,7 @@ Allt innehåll finns i **`src/data/content.ts`**:
 
 - `site` – företagsnamn, beskrivning (för sökmotorer) och domän (`https://ldbk.se`)
 - `contactCard` – uppgifterna som sparas i telefonen när kontakt-QR-koden skannas
-- `social.instagram` – Instagram-adressen som `ldbk.se/instagram` vidarebefordrar till
+- `social` – Instagram- och LinkedIn-adresserna som `ldbk.se/instagram` och `ldbk.se/linkedin` vidarebefordrar till
 - `socialLinks` – länkarna under "Länkar" (LinkedIn, portfolio, Instagram)
 
 All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
@@ -38,11 +38,12 @@ All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 | --------- | --------------------------------------------------------------------------- |
 | Hemsida   | Öppnar `https://ldbk.se`                                                    |
 | Kontakt   | Ett vCard – telefonen erbjuder att spara kontakten direkt, även utan internet |
+| LinkedIn  | Öppnar `https://ldbk.se/linkedin`, som vidarebefordrar till LinkedIn          |
 | Instagram | Öppnar `https://ldbk.se/instagram`, som vidarebefordrar till Instagram        |
 
-- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/hemsida`, `/qr/kontakt` och `/qr/instagram`.
+- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/hemsida`, `/qr/kontakt`, `/qr/linkedin` och `/qr/instagram`.
 - **Skriv ut visitkortet:** skriv ut startsidan från webbläsaren – varje sida blir exakt 85 × 55 mm (välj "Spara som PDF" för att få en fil till tryckeriet).
-- Hemsida- och Instagram-koderna fungerar först när sidan är publicerad på `ldbk.se`.
+- Hemsida-, LinkedIn- och Instagram-koderna fungerar först när sidan är publicerad på `ldbk.se`.
 - Kontaktkoden innehåller uppgifterna direkt. Ändras kontaktuppgifterna måste korten tryckas om.
 
 ## Projektstruktur
