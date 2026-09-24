@@ -23,7 +23,7 @@ export default async function HomePage() {
         {/* TODO: Ersätt textloggan med en riktig logotyp (t.ex. next/image med SVG) */}
         <div className="text-center">
           <h1 className="text-[22cqw] leading-none tracking-tighter">{site.name}</h1>
-          <p className="mt-[2cqw] text-[3.4cqw] tracking-wide">{site.tagline}</p>
+          <p className="mt-[2.5cqw] text-[max(2.6cqw,10px)] uppercase tracking-[0.2em] print:text-[2.6cqw]">{site.tagline}</p>
         </div>
       </section>
 
