@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       // QR-koderna pekar hit, så att länkarna kan ändras i efterhand
-      { source: "/instagram", destination: social.instagram, permanent: false },
+      { source: "/content", destination: social.content, permanent: false },
     ];
   },
 };

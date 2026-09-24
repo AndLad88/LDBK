@@ -29,13 +29,14 @@ export const contactCard = {
 };
 
 /**
- * Instagram-QR-koden pekar på ldbk.se/instagram, som vidarebefordras hit
+ * Content-QR-koden pekar på ldbk.se/content, som vidarebefordras hit
  * (se next.config.ts). Därför kan länken ändras utan att visitkorten
  * behöver tryckas om.
  */
 export const social = {
+  // Vart "Content" leder, t.ex. Instagram.
   // TODO: [PLATSHÅLLARE] Byt till er riktiga Instagram-adress.
-  instagram: "https://www.instagram.com/ldbk/",
+  content: "https://www.instagram.com/ldbk/",
 };
 
 /**

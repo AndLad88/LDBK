@@ -6,7 +6,7 @@ export type QrType =
   | "projects"
   | "contact"
   | "about"
-  | "instagram"
+  | "content"
   | "billing";
 
 /** Escapar tecken som har särskild betydelse i vCard-format. */
@@ -81,14 +81,14 @@ export const qrCodes: Record<QrType, QrCode> = {
     onCard: false,
     color: "#b45309", // bärnsten
   },
-  instagram: {
-    label: "Instagram",
-    description: "QR code that opens LDBK on Instagram",
-    href: "/instagram",
+  content: {
+    label: "Content",
+    description: "QR code that opens LDBK content",
+    href: "/content",
     // Pekar på egen domän som vidarebefordrar (se next.config.ts)
-    data: () => `${site.url}/instagram`,
+    data: () => `${site.url}/content`,
     onCard: true,
-    color: "#c13584", // Instagram-magenta
+    color: "#c13584", // magenta
   },
   billing: {
     label: "Billing",

@@ -28,7 +28,7 @@ Allt innehåll finns i **`src/data/content.ts`**:
 - `site` – företagsnamn, beskrivning (för sökmotorer) och domän (`https://ldbk.se`)
 - `contactCard` – uppgifterna som sparas i telefonen när kontakt-QR-koden skannas
 - `billing` – faktureringsuppgifter (org.nr, VAT, bankgiro, IBAN m.m.). Tomma fält döljs.
-- `social` – Instagram-adressen som `ldbk.se/instagram` vidarebefordrar till
+- `social.content` – adressen (t.ex. Instagram) som `ldbk.se/content` vidarebefordrar till
 
 All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 
@@ -40,13 +40,13 @@ All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 | Projects  | Öppnar `https://ldbk.se/projects` – en platshållarsida tills projekten finns (bara på webbsidan) |
 | Contact   | Öppnar `https://ldbk.se/contact` – ring, mejla, sms eller spara kontakten (`/contact.vcf`) |
 | About     | Öppnar `https://ldbk.se/about` – en platshållarsida tills texten finns          |
-| Instagram | Öppnar `https://ldbk.se/instagram`, som vidarebefordrar till Instagram        |
+| Content   | Öppnar `https://ldbk.se/content`, som vidarebefordrar till Instagram          |
 | Billing   | Öppnar `https://ldbk.se/billing` – faktureringsuppgifter med kopieringsknappar (bara på webbsidan) |
 
 - **Färger:** varje QR-kod har en egen färg på webbsidan (`color` i `src/lib/qr.ts`). Det tryckta visitkortet använder svarta koder.
-- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/website`, `/qr/projects`, `/qr/contact`, `/qr/about`, `/qr/instagram` och `/qr/billing`.
+- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/website`, `/qr/projects`, `/qr/contact`, `/qr/about`, `/qr/content` och `/qr/billing`.
 - **Skriv ut visitkortet:** skriv ut startsidan från webbläsaren – varje sida blir exakt 85 × 55 mm (välj "Spara som PDF" för att få en fil till tryckeriet).
-- Website-, About-, Contact-, Projects- och Instagram-koderna fungerar först när sidan är publicerad på `ldbk.se`.
+- Website-, About-, Contact-, Projects- och Content-koderna fungerar först när sidan är publicerad på `ldbk.se`.
 - Kontaktkoden pekar på kontaktsidan, så kontaktuppgifterna kan ändras i `content.ts` utan att korten trycks om.
 - Alla QR-koder har samma storlek (version 3, 29 × 29 rutor) så att de ser likadana ut.
 
