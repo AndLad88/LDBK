@@ -57,7 +57,7 @@ export default async function HomePage() {
                   <figcaption className="mt-2 whitespace-nowrap text-[7px] uppercase tracking-normal sm:text-[9px] sm:tracking-[0.2em] wide:mt-[1.2svh] wide:text-[max(9px,1.05svh)]">
                     <a
                       href={code.href}
-                      className="underline decoration-neutral-400 underline-offset-4 hover:decoration-black"
+                      className="transition-opacity duration-200 hover:opacity-50"
                     >
                       {code.label}
                     </a>
