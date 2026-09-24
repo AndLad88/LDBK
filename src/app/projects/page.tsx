@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ProjectsPage() {
   return (
     <main className="flex min-h-svh flex-col items-center justify-center px-5 text-center">
-      <p className="text-xs uppercase tracking-[0.2em] text-neutral-500">{site.name}</p>
+      <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">{site.name}</p>
       <h1 className="mt-5 text-4xl sm:text-5xl">Projects</h1>
       <p className="mt-4 text-sm uppercase tracking-[0.2em]">Coming soon</p>
       <Link href="/" className="mt-10 text-sm transition-opacity duration-200 hover:opacity-50">
