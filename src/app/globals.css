@@ -31,7 +31,7 @@
 
 @layer base {
   html {
-    @apply bg-black font-sans text-white antialiased print:bg-white print:text-black;
+    @apply bg-white font-sans text-black antialiased;
   }
 
   /* Rubriker är alltid feta, brödtext normal vikt */
@@ -54,7 +54,7 @@
   }
 
   ::selection {
-    @apply bg-white text-black;
+    @apply bg-black text-white;
   }
 }
 

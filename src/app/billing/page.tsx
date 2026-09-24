@@ -24,7 +24,7 @@ const rows = [
 export default function BillingPage() {
   return (
     <SubPage title="Billing">
-      <dl className="mt-10 w-full max-w-md divide-y divide-neutral-800 border-y border-neutral-800 text-left">
+      <dl className="mt-10 w-full max-w-md divide-y divide-neutral-200 border-y border-neutral-200 text-left">
         {rows.map((row) => (
           <div
             key={row.label}
@@ -42,7 +42,7 @@ export default function BillingPage() {
           </div>
         ))}
       </dl>
-      <p className="mt-6 max-w-md text-xs text-neutral-400">
+      <p className="mt-6 max-w-md text-xs text-neutral-500">
         Payment details are always stated on our invoices. Contact us if anything differs.
       </p>
     </SubPage>

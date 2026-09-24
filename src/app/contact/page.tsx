@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const button =
-  "flex w-full items-center justify-between border border-white px-5 py-4 text-left text-sm uppercase tracking-[0.15em] transition-colors duration-200 hover:bg-white hover:text-black";
+  "flex w-full items-center justify-between border border-black px-5 py-4 text-left text-sm uppercase tracking-[0.15em] transition-colors duration-200 hover:bg-black hover:text-white";
 
 const actions = [
   { label: "Call", detail: contactCard.phoneDisplay, href: `tel:${contactCard.phone}` },
@@ -33,7 +33,7 @@ export default function ContactPage() {
         <li>
           <a
             href="/contact.vcf"
-            className={`${button} justify-center bg-white text-black hover:bg-black hover:text-white`}
+            className={`${button} justify-center bg-black text-white hover:bg-white hover:text-black`}
           >
             Save contact
           </a>

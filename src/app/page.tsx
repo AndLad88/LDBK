@@ -61,18 +61,17 @@ export default async function HomePage() {
             {codes.map((code) => (
               <li key={code.type}>
                 {/* Hela koden + texten är en länk. Vid hover växer koden och
-                    texten får en ljusare variant av kodens färg (--qr), så att den syns mot svart. */}
+                    texten får kodens färg (--qr). */}
                 <a
                   href={code.href}
                   title={code.description}
                   style={{ "--qr": code.color } as CSSProperties}
                   className="group flex flex-col items-center outline-offset-4"
                 >
-                  {/* Vit ruta bakom koden: QR-koder behöver ljus bakgrund för att kunna skannas */}
-                  <div className="w-full max-w-10 bg-white p-[7%] transition-transform duration-300 ease-out group-hover:scale-110 group-focus-visible:scale-110 sm:w-13 sm:max-w-none wide:w-[7.5svh]">
+                  <div className="w-full max-w-9 transition-transform duration-300 ease-out group-hover:scale-110 group-focus-visible:scale-110 sm:w-12 sm:max-w-none wide:w-[7svh]">
                     <QrImage svg={code.svg} />
                   </div>
-                  <span className="mt-2 whitespace-nowrap text-[7px] uppercase tracking-[-0.03em] max-[359px]:text-[6.5px] transition-colors duration-300 group-hover:text-[color-mix(in_srgb,var(--qr)_55%,white)] group-focus-visible:text-[color-mix(in_srgb,var(--qr)_55%,white)] sm:text-[9px] sm:tracking-[0.2em] wide:mt-[1.2svh] wide:text-[max(9px,1.05svh)]">
+                  <span className="mt-2 whitespace-nowrap text-[7px] uppercase tracking-[-0.03em] max-[359px]:text-[6.5px] transition-colors duration-300 group-hover:text-(--qr) group-focus-visible:text-(--qr) sm:text-[9px] sm:tracking-[0.2em] wide:mt-[1.2svh] wide:text-[max(9px,1.05svh)]">
                     {code.label}
                   </span>
                 </a>
