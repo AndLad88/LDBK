@@ -1,4 +1,4 @@
-import { cookies, headers } from "next/headers";
+import { cookies } from "next/headers";
 import { defaultLocale, LOCALE_COOKIE, locales, type Locale } from "@/lib/i18n-config";
 import type { QrType } from "@/lib/qr";
 
@@ -6,8 +6,7 @@ export type { Locale };
 
 /**
  * Översättningar för webbplatsen. Språket väljs med språkväljaren uppe till
- * höger och sparas i cookien "lang". Vid första besöket används webbläsarens
- * språk (Accept-Language), annars engelska.
+ * höger och sparas i cookien "lang". Förvalt språk är alltid engelska.
  *
  * Lägg till eller ändra texter här – komponenterna hämtar dem via getDictionary().
  */
@@ -282,17 +281,10 @@ const dictionaries: Record<Locale, Dictionary> = {
 const isLocale = (value: string | undefined): value is Locale =>
   !!value && (locales as readonly string[]).includes(value);
 
-/** Aktuellt språk: cookie först, sedan webbläsarens språk, annars engelska. */
+/** Aktuellt språk: valt språk (cookie), annars alltid engelska. */
 export async function getLocale(): Promise<Locale> {
   const fromCookie = (await cookies()).get(LOCALE_COOKIE)?.value;
-  if (isLocale(fromCookie)) return fromCookie;
-
-  const accept = (await headers()).get("accept-language") ?? "";
-  for (const part of accept.split(",")) {
-    const code = part.trim().slice(0, 2).toLowerCase();
-    if (isLocale(code)) return code;
-  }
-  return defaultLocale;
+  return isLocale(fromCookie) ? fromCookie : defaultLocale;
 }
 
 /** Aktuellt språk och dess texter. */

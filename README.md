@@ -37,7 +37,7 @@ All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 Uppe till höger finns en språkväljare (rullgardinsmeny): **English, Deutsch, Français, Español, Italiano, Svenska**.
 
 - Alla texter på alla språk finns i **`src/lib/i18n.ts`** – ändra eller lägg till översättningar där.
-- Valt språk sparas i cookien `lang`. Vid första besöket används webbläsarens språk, annars engelska.
+- Förvalt språk är alltid engelska. Valt språk sparas i cookien `lang`.
 - Adresserna är desamma på alla språk, så QR-koderna fungerar oavsett språk.
 - Vill du lägga till ett språk: lägg till koden i `src/lib/i18n-config.ts` och en ordlista i `i18n.ts`.
 
