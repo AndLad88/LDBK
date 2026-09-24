@@ -13,14 +13,10 @@
  * Strikt svart/vitt; gråskalor används sparsamt för ramar och sekundär text.
  */
 @theme {
-  /*
-   * SF Mono som standardfont för all text (utility-klassen font-mono).
-   * SF Mono får inte bäddas in på webben, så det används när det finns på
-   * besökarens enhet (Apple). Övriga får närmast liknande monospace-typsnitt.
-   */
-  --font-mono:
-    ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
-    monospace;
+  /* Enhetens systemtypsnitt (San Francisco på Apple, Segoe UI på Windows osv.) */
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
 
   --color-black: #000000;
   --color-white: #ffffff;
@@ -35,7 +31,7 @@
 
 @layer base {
   html {
-    @apply bg-white font-mono text-black antialiased;
+    @apply bg-white font-sans text-black antialiased;
   }
 
   /* Rubriker är alltid feta, brödtext normal vikt */
@@ -46,8 +42,9 @@
     @apply font-bold tracking-tight;
   }
 
+  /* All text i fet stil */
   body {
-    @apply font-normal;
+    @apply font-bold;
   }
 
   /* Synlig fokusmarkering som fungerar på både svart och vit bakgrund */
