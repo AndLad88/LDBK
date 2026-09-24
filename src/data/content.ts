@@ -8,10 +8,10 @@
 export const site = {
   name: "LDBK",
   // Visas under logotypen på visitkortets framsida
-  tagline: "Construction and design solutions",
+  tagline: "Construction and building design solutions",
   url: "https://ldbk.se",
   description:
-    "[PLATSHÅLLARE] LDBK – construction and design solutions.",
+    "[PLATSHÅLLARE] LDBK – construction and building design solutions.",
 };
 
 /** Kontaktuppgifter som sparas i telefonen när kontakt-QR-koden skannas. */

@@ -73,7 +73,7 @@ export default async function HomePage() {
       <section aria-hidden="true" className={printCard}>
         <div className="text-center">
           <p className="text-[22cqw] font-bold leading-none tracking-tighter">{site.name}</p>
-          <p className="mt-[2.5cqw] text-[2.6cqw] uppercase tracking-[0.2em]">{site.tagline}</p>
+          <p className="mt-[2.5cqw] whitespace-nowrap text-[2.1cqw] uppercase tracking-[0.12em]">{site.tagline}</p>
         </div>
       </section>
 
