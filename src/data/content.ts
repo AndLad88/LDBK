@@ -27,13 +27,11 @@ export const contactCard = {
 };
 
 /**
- * QR-koderna pekar på ldbk.se/instagram och ldbk.se/linkedin, som
- * vidarebefordras hit (se next.config.ts). Därför kan länkarna ändras
- * utan att visitkorten behöver tryckas om.
+ * Instagram-QR-koden pekar på ldbk.se/instagram, som vidarebefordras hit
+ * (se next.config.ts). Därför kan länken ändras utan att visitkorten
+ * behöver tryckas om.
  */
 export const social = {
   // TODO: [PLATSHÅLLARE] Byt till er riktiga Instagram-adress.
   instagram: "https://www.instagram.com/ldbk/",
-  // TODO: [PLATSHÅLLARE] Byt till din riktiga LinkedIn-profil.
-  linkedin: "https://www.linkedin.com/in/andreas-ladeborn",
 };

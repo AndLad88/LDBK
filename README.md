@@ -27,7 +27,7 @@ Allt innehåll finns i **`src/data/content.ts`**:
 
 - `site` – företagsnamn, beskrivning (för sökmotorer) och domän (`https://ldbk.se`)
 - `contactCard` – uppgifterna som sparas i telefonen när kontakt-QR-koden skannas
-- `social` – Instagram- och LinkedIn-adresserna som `ldbk.se/instagram` och `ldbk.se/linkedin` vidarebefordrar till
+- `social` – Instagram-adressen som `ldbk.se/instagram` vidarebefordrar till
 
 All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 
@@ -38,16 +38,16 @@ All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 | Website   | Öppnar `https://ldbk.se`                                                    |
 | Projects  | Öppnar `https://ldbk.se/projects` – en platshållarsida tills projekten finns (bara på webbsidan) |
 | Contact   | Ett vCard – telefonen erbjuder att spara kontakten direkt, även utan internet |
-| LinkedIn  | Öppnar `https://ldbk.se/linkedin`, som vidarebefordrar till LinkedIn          |
+| About     | Öppnar `https://ldbk.se/about` – en platshållarsida tills texten finns          |
 | Instagram | Öppnar `https://ldbk.se/instagram`, som vidarebefordrar till Instagram        |
 | Call      | Ringer upp telefonnumret (bara på webbsidan)                                  |
 | Email     | Skapar ett mejl till e-postadressen (bara på webbsidan)                       |
 | SMS       | Skapar ett sms till telefonnumret (bara på webbsidan)                         |
 
 - **Färger:** varje QR-kod har en egen färg på webbsidan (`color` i `src/lib/qr.ts`). Det tryckta visitkortet använder svarta koder.
-- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/website`, `/qr/projects`, `/qr/contact`, `/qr/linkedin`, `/qr/instagram`, `/qr/call`, `/qr/email` och `/qr/sms`.
+- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/website`, `/qr/projects`, `/qr/contact`, `/qr/about`, `/qr/instagram`, `/qr/call`, `/qr/email` och `/qr/sms`.
 - **Skriv ut visitkortet:** skriv ut startsidan från webbläsaren – varje sida blir exakt 85 × 55 mm (välj "Spara som PDF" för att få en fil till tryckeriet).
-- Website-, LinkedIn- och Instagram-koderna fungerar först när sidan är publicerad på `ldbk.se`.
+- Website-, Projects-, About- och Instagram-koderna fungerar först när sidan är publicerad på `ldbk.se`.
 - Kontaktkoden innehåller uppgifterna direkt. Ändras kontaktuppgifterna måste korten tryckas om.
 
 ## Projektstruktur
@@ -59,6 +59,7 @@ src/
 │   ├── layout.tsx      # Gemensam layout + metadata
 │   ├── not-found.tsx   # 404-sida
 │   ├── projects/       # Platshållarsida för projekt
+│   ├── about/          # Platshållarsida för Om oss
 │   ├── qr/[type]/      # Nedladdningsbara QR-koder (SVG)
 │   ├── contact.vcf/    # Kontaktfil (etiketten "Contact")
 │   ├── globals.css     # Designsystem (Tailwind-tema: typsnitt, färger)

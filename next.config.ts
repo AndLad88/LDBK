@@ -6,7 +6,6 @@ const nextConfig: NextConfig = {
     return [
       // QR-koderna pekar hit, så att länkarna kan ändras i efterhand
       { source: "/instagram", destination: social.instagram, permanent: false },
-      { source: "/linkedin", destination: social.linkedin, permanent: false },
     ];
   },
 };

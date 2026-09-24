@@ -5,7 +5,7 @@ export type QrType =
   | "website"
   | "projects"
   | "contact"
-  | "linkedin"
+  | "about"
   | "instagram"
   | "call"
   | "email"
@@ -73,14 +73,14 @@ export const qrCodes: Record<QrType, QrCode> = {
     onCard: true,
     color: "#334155", // skiffergrå
   },
-  linkedin: {
-    label: "LinkedIn",
-    description: "QR code that opens LinkedIn",
-    href: "/linkedin",
-    // Pekar på egen domän som vidarebefordrar (se next.config.ts)
-    data: () => `${site.url}/linkedin`,
+  about: {
+    label: "About",
+    description: "QR code that opens About LDBK",
+    // [PLATSHÅLLARE] Sidan /about är en platshållare tills texten finns
+    href: "/about",
+    data: () => `${site.url}/about`,
     onCard: true,
-    color: "#0a66c2", // LinkedIn-blå
+    color: "#0a66c2", // blå
   },
   instagram: {
     label: "Instagram",
