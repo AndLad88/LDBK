@@ -29,9 +29,9 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Helsida: logotyp överst, all övrig information samlad under */}
-      <main className="grid min-h-svh grid-rows-[1fr_auto] bg-white px-5 print:hidden">
-        <header className="flex flex-col items-center justify-center py-10 text-center">
+      {/* Helsida: logotyp, tagline och QR-koder samlade mitt på sidan */}
+      <main className="flex min-h-svh flex-col items-center justify-center bg-white px-5 py-10 print:hidden">
+        <header className="text-center">
           {/* TODO: Ersätt textloggan med en riktig logotyp (t.ex. next/image med SVG) */}
           <h1 className="text-[clamp(4.5rem,20vw,9rem)] leading-none tracking-tighter">
             {site.name}
@@ -41,7 +41,7 @@ export default async function HomePage() {
           </p>
         </header>
 
-        <div className="pb-10">
+        <div className="mt-5 w-full sm:mt-6">
           {/* QR-koder på en rad: en kolumn per kod (antalet styrs av lib/qr.ts) */}
           <h2 className="sr-only">QR codes</h2>
           <ul
