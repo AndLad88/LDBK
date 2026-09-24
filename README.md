@@ -21,14 +21,13 @@ npm run dev      # starta utvecklingsserver på http://localhost:3000
 
 ## Redigera innehåll
 
-Webbplatsen är ett digitalt visitkort på en helsida: överst "LDBK" med taglinen under, och under det knappar för att ringa, mejla och sms:a, en knapp för att spara kontakten (`/kontakt.vcf`), länkar till profiler och QR-koder. Vid utskrift blir sidan i stället ett tryckbart visitkort i liggande format (85 × 55 mm): framsidan med "LDBK" och baksidan med QR-koderna.
+Webbplatsen är ett digitalt visitkort på en helsida: överst "LDBK" med taglinen under, och under det QR-koder vars etiketter också är klickbara länkar. Vid utskrift blir sidan i stället ett tryckbart visitkort i liggande format (85 × 55 mm): framsidan med "LDBK" och baksidan med QR-koderna.
 
 Allt innehåll finns i **`src/data/content.ts`**:
 
 - `site` – företagsnamn, beskrivning (för sökmotorer) och domän (`https://ldbk.se`)
 - `contactCard` – uppgifterna som sparas i telefonen när kontakt-QR-koden skannas
 - `social` – Instagram- och LinkedIn-adresserna som `ldbk.se/instagram` och `ldbk.se/linkedin` vidarebefordrar till
-- `socialLinks` – länkarna under "Länkar" (LinkedIn, portfolio, Instagram)
 
 All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 

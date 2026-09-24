@@ -1,17 +1,5 @@
-import { contactCard, site, socialLinks } from "@/data/content";
+import { site } from "@/data/content";
 import { qrCodes, qrSvg, qrTypes } from "@/lib/qr";
-
-const buttonBase =
-  "flex w-full items-center justify-center border border-black px-3 py-3 text-xs font-bold uppercase tracking-[0.15em] transition-colors duration-200";
-const outline = "bg-white text-black hover:bg-black hover:text-white";
-const solid = "bg-black text-white hover:bg-white hover:text-black";
-const small = "text-[10px] uppercase tracking-[0.2em]";
-
-const contactButtons = [
-  { label: "Ring", href: `tel:${contactCard.phone}` },
-  { label: "Mejla", href: `mailto:${contactCard.email}` },
-  { label: "SMS", href: `sms:${contactCard.phone}` },
-];
 
 /**
  * Tryckbart visitkort: liggande 85 × 55 mm. Visas bara vid utskrift, där
@@ -54,38 +42,10 @@ export default async function HomePage() {
         </header>
 
         <div className="mx-auto w-full max-w-sm pb-10 text-center">
-          {/* Kontaktknappar och Spara kontakt (vCard) */}
-          <h2 className="sr-only">Kontakt</h2>
-          <ul className="grid grid-cols-3 gap-2">
-            {contactButtons.map((button) => (
-              <li key={button.label}>
-                <a href={button.href} className={`${buttonBase} ${outline}`}>
-                  {button.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <a href="/kontakt.vcf" className={`${buttonBase} ${solid} mt-2`}>
-            Spara kontakt
-          </a>
-
-          {/* Sociala länkar */}
-          <nav aria-label="Länkar" className="mt-6">
-            <ul className={`flex justify-center gap-6 ${small}`}>
-              {socialLinks.map((link) => (
-                <li key={link.label}>
-                  <a href={link.href} className="underline-offset-4 hover:underline">
-                    {link.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
           {/* QR-koder: länkar överst, ring/mejla/sms under */}
           <h2 className="sr-only">QR-koder</h2>
           {[cardCodes, actionCodes].map((row, i) => (
-            <ul key={i} className={`flex justify-center gap-5 ${i === 0 ? "mt-6" : "mt-4"}`}>
+            <ul key={i} className={`flex justify-center gap-5 ${i > 0 ? "mt-4" : ""}`}>
               {row.map((code) => (
                 <li key={code.type}>
                   <figure className="flex w-14 flex-col items-center">
