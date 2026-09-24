@@ -21,7 +21,7 @@ npm run dev      # starta utvecklingsserver på http://localhost:3000
 
 ## Redigera innehåll
 
-Webbplatsen är ett digitalt visitkort. Överst finns namn och titel, knappar för att ringa, mejla och sms:a, en knapp för att spara kontakten (`/kontakt.vcf`) och länkar till profiler. Under visas det tryckbara visitkortet i liggande format (85 × 55 mm): framsidan med "LDBK" och baksidan med tre QR-koder.
+Webbplatsen är ett digitalt visitkort på en helsida: överst "LDBK" med taglinen under, och under det namn och titel, knappar för att ringa, mejla och sms:a, en knapp för att spara kontakten (`/kontakt.vcf`), länkar till profiler och QR-koder. Vid utskrift blir sidan i stället ett tryckbart visitkort i liggande format (85 × 55 mm): framsidan med "LDBK" och baksidan med QR-koderna.
 
 Allt innehåll finns i **`src/data/content.ts`**:
 
