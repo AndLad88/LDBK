@@ -21,7 +21,7 @@ npm run dev      # starta utvecklingsserver på http://localhost:3000
 
 ## Redigera innehåll
 
-Webbplatsen är ett digitalt visitkort på en helsida: överst "LDBK" med taglinen under, och under det QR-koder vars etiketter också är klickbara länkar. Vid utskrift blir sidan i stället ett tryckbart visitkort i liggande format (85 × 55 mm): framsidan med "LDBK" och baksidan med QR-koderna.
+Webbplatsen är ett digitalt visitkort på en helsida, med texterna på engelska: överst "LDBK" med taglinen under, och under det QR-koder vars etiketter också är klickbara länkar. Vid utskrift blir sidan i stället ett tryckbart visitkort i liggande format (85 × 55 mm): framsidan med "LDBK" och baksidan med QR-koderna.
 
 Allt innehåll finns i **`src/data/content.ts`**:
 
@@ -35,17 +35,17 @@ All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 
 | QR-kod    | Innehåll                                                                    |
 | --------- | --------------------------------------------------------------------------- |
-| Hemsida   | Öppnar `https://ldbk.se`                                                    |
-| Kontakt   | Ett vCard – telefonen erbjuder att spara kontakten direkt, även utan internet |
+| Website   | Öppnar `https://ldbk.se`                                                    |
+| Contact   | Ett vCard – telefonen erbjuder att spara kontakten direkt, även utan internet |
 | LinkedIn  | Öppnar `https://ldbk.se/linkedin`, som vidarebefordrar till LinkedIn          |
 | Instagram | Öppnar `https://ldbk.se/instagram`, som vidarebefordrar till Instagram        |
-| Ring      | Ringer upp telefonnumret (bara på webbsidan)                                  |
-| Mejla     | Skapar ett mejl till e-postadressen (bara på webbsidan)                       |
+| Call      | Ringer upp telefonnumret (bara på webbsidan)                                  |
+| Email     | Skapar ett mejl till e-postadressen (bara på webbsidan)                       |
 | SMS       | Skapar ett sms till telefonnumret (bara på webbsidan)                         |
 
-- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/hemsida`, `/qr/kontakt`, `/qr/linkedin`, `/qr/instagram`, `/qr/ring`, `/qr/mejla` och `/qr/sms`.
+- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/website`, `/qr/contact`, `/qr/linkedin`, `/qr/instagram`, `/qr/call`, `/qr/email` och `/qr/sms`.
 - **Skriv ut visitkortet:** skriv ut startsidan från webbläsaren – varje sida blir exakt 85 × 55 mm (välj "Spara som PDF" för att få en fil till tryckeriet).
-- Hemsida-, LinkedIn- och Instagram-koderna fungerar först när sidan är publicerad på `ldbk.se`.
+- Website-, LinkedIn- och Instagram-koderna fungerar först när sidan är publicerad på `ldbk.se`.
 - Kontaktkoden innehåller uppgifterna direkt. Ändras kontaktuppgifterna måste korten tryckas om.
 
 ## Projektstruktur
@@ -57,7 +57,7 @@ src/
 │   ├── layout.tsx      # Gemensam layout + metadata
 │   ├── not-found.tsx   # 404-sida
 │   ├── qr/[type]/      # Nedladdningsbara QR-koder (SVG)
-│   ├── kontakt.vcf/    # Kontaktfil för "Spara kontakt"
+│   ├── contact.vcf/    # Kontaktfil (etiketten "Contact")
 │   ├── globals.css     # Designsystem (Tailwind-tema: typsnitt, färger)
 │   ├── sitemap.ts      # Genererar /sitemap.xml
 │   └── robots.ts       # Genererar /robots.txt

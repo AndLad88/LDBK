@@ -1,3 +1,4 @@
+import type { CSSProperties } from "react";
 import { site } from "@/data/content";
 import { qrCodes, qrSvg, qrTypes } from "@/lib/qr";
 
@@ -25,7 +26,6 @@ export default async function HomePage() {
     qrTypes.map(async (type) => ({ type, svg: await qrSvg(type), ...qrCodes[type] })),
   );
   const cardCodes = codes.filter((code) => code.onCard);
-  const actionCodes = codes.filter((code) => !code.onCard);
 
   return (
     <>
@@ -41,28 +41,31 @@ export default async function HomePage() {
           </p>
         </header>
 
-        <div className="mx-auto w-full max-w-sm pb-10 text-center">
-          {/* QR-koder: länkar överst, ring/mejla/sms under */}
-          <h2 className="sr-only">QR-koder</h2>
-          {[cardCodes, actionCodes].map((row, i) => (
-            <ul key={i} className={`flex justify-center gap-5 ${i > 0 ? "mt-4" : ""}`}>
-              {row.map((code) => (
-                <li key={code.type}>
-                  <figure className="flex w-14 flex-col items-center">
+        <div className="pb-10">
+          {/* QR-koder på en rad: en kolumn per kod (antalet styrs av lib/qr.ts) */}
+          <h2 className="sr-only">QR codes</h2>
+          <ul
+            style={{ "--cols": codes.length } as CSSProperties}
+            className="mx-auto grid w-full max-w-md grid-cols-[repeat(var(--cols),minmax(0,1fr))] gap-x-2 sm:w-fit sm:max-w-none sm:grid-cols-[repeat(var(--cols),auto)] sm:gap-x-5"
+          >
+            {codes.map((code) => (
+              <li key={code.type}>
+                <figure className="flex flex-col items-center">
+                  <div className="w-full max-w-9 sm:w-12 sm:max-w-none">
                     <QrImage svg={code.svg} label={code.description} />
-                    <figcaption className="mt-2 text-[9px] uppercase tracking-[0.2em]">
-                      <a
-                        href={code.href}
-                        className="underline decoration-neutral-400 underline-offset-4 hover:decoration-black"
-                      >
-                        {code.label}
-                      </a>
-                    </figcaption>
-                  </figure>
-                </li>
-              ))}
-            </ul>
-          ))}
+                  </div>
+                  <figcaption className="mt-2 whitespace-nowrap text-[7px] uppercase tracking-normal sm:text-[9px] sm:tracking-[0.2em]">
+                    <a
+                      href={code.href}
+                      className="underline decoration-neutral-400 underline-offset-4 hover:decoration-black"
+                    >
+                      {code.label}
+                    </a>
+                  </figcaption>
+                </figure>
+              </li>
+            ))}
+          </ul>
         </div>
       </main>
 

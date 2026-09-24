@@ -11,14 +11,14 @@ export const site = {
   tagline: "Construction and design solutions",
   url: "https://ldbk.se",
   description:
-    "[PLATSHÅLLARE] LDBK – projektledning, byggledning, konstruktion och renovering.",
+    "[PLATSHÅLLARE] LDBK – construction and design solutions.",
 };
 
 /** Kontaktuppgifter som sparas i telefonen när kontakt-QR-koden skannas. */
 export const contactCard = {
   firstName: "Andreas",
   lastName: "Ladeborn",
-  title: "VD",
+  title: "CEO",
   organization: "LDBK",
   // Internationellt format fungerar även för utländska telefoner.
   phone: "+46704827517",

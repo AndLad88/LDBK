@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",
-    locale: "sv_SE",
+    locale: "en_US",
     siteName: site.name,
     title: site.name,
     description: site.description,
@@ -23,7 +23,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="sv">
+    <html lang="en">
       <body>{children}</body>
     </html>
   );

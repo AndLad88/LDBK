@@ -2,7 +2,7 @@ import { qrSvg, qrTypes, type QrType } from "@/lib/qr";
 
 /**
  * Nedladdningsbara QR-koder som SVG (vektor – bäst för tryck):
- * /qr/hemsida, /qr/kontakt, /qr/linkedin, /qr/instagram, /qr/ring, /qr/mejla och /qr/sms
+ * /qr/website, /qr/contact, /qr/linkedin, /qr/instagram, /qr/call, /qr/email and /qr/sms
  */
 export function generateStaticParams() {
   return qrTypes.map((type) => ({ type }));

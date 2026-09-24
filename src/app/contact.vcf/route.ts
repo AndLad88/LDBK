@@ -2,7 +2,7 @@ import { buildVCard } from "@/lib/qr";
 
 export const dynamic = "force-static";
 
-/** Kontaktfil för knappen "Spara kontakt" – öppnas direkt i telefonens kontakter. */
+/** Kontaktfil för etiketten "Contact" – öppnas direkt i telefonens kontakter. */
 export function GET() {
   return new Response(buildVCard(), {
     headers: {
