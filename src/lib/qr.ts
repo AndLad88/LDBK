@@ -7,9 +7,7 @@ export type QrType =
   | "contact"
   | "about"
   | "instagram"
-  | "call"
-  | "email"
-  | "sms";
+  | "billing";
 
 /** Escapar tecken som har särskild betydelse i vCard-format. */
 const vcardEscape = (value: string) => value.replace(/([\;,])/g, "\\$1");
@@ -67,11 +65,10 @@ export const qrCodes: Record<QrType, QrCode> = {
   },
   contact: {
     label: "Contact",
-    description: "QR code that saves the contact details to your phone",
-    href: "/contact.vcf",
-    // Pekar på kontaktfilen i stället för att bära hela kontaktkortet, så att
-    // koden blir lika gles som de andra och lättare att skanna i litet format.
-    data: () => `${site.url}/contact.vcf`,
+    description: "QR code that opens contact options: call, email, SMS and save contact",
+    // Kontaktsidan samlar ring, mejla, sms och spara kontakt (vCard)
+    href: "/contact",
+    data: () => `${site.url}/contact`,
     onCard: true,
     color: "#334155", // skiffergrå
   },
@@ -93,30 +90,13 @@ export const qrCodes: Record<QrType, QrCode> = {
     onCard: true,
     color: "#c13584", // Instagram-magenta
   },
-  call: {
-    label: "Call",
-    description: "QR code that calls LDBK",
-    href: `tel:${contactCard.phone}`,
-    data: () => `tel:${contactCard.phone}`,
+  billing: {
+    label: "Billing",
+    description: "QR code that opens LDBK billing details",
+    href: "/billing",
+    data: () => `${site.url}/billing`,
     onCard: false,
     color: "#15803d", // grön
-  },
-  email: {
-    label: "Email",
-    description: "QR code that starts an email to LDBK",
-    href: `mailto:${contactCard.email}`,
-    data: () => `mailto:${contactCard.email}`,
-    onCard: false,
-    color: "#b91c1c", // röd
-  },
-  sms: {
-    label: "SMS",
-    description: "QR code that starts a text message to LDBK",
-    href: `sms:${contactCard.phone}`,
-    // SMSTO-formatet förstås av både iPhone och Android
-    data: () => `SMSTO:${contactCard.phone}:`,
-    onCard: false,
-    color: "#6d28d9", // violett
   },
 };
 

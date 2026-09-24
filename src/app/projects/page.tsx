@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { SubPage } from "@/components/SubPage";
 import { site } from "@/data/content";
 
 // [PLATSHÅLLARE] Ersätt med riktiga projekt när de finns.
@@ -11,13 +11,8 @@ export const metadata: Metadata = {
 
 export default function ProjectsPage() {
   return (
-    <main className="flex min-h-svh flex-col items-center justify-center px-5 text-center">
-      <p className="text-xs uppercase tracking-[0.2em] text-neutral-400">{site.name}</p>
-      <h1 className="mt-5 text-4xl sm:text-5xl">Projects</h1>
+    <SubPage title="Projects">
       <p className="mt-4 text-sm uppercase tracking-[0.2em]">Coming soon</p>
-      <Link href="/" className="mt-10 text-sm transition-opacity duration-200 hover:opacity-50">
-        ← Back
-      </Link>
-    </main>
+    </SubPage>
   );
 }

@@ -27,6 +27,7 @@ Allt innehåll finns i **`src/data/content.ts`**:
 
 - `site` – företagsnamn, beskrivning (för sökmotorer) och domän (`https://ldbk.se`)
 - `contactCard` – uppgifterna som sparas i telefonen när kontakt-QR-koden skannas
+- `billing` – faktureringsuppgifter (org.nr, VAT, bankgiro, IBAN m.m.). Tomma fält döljs.
 - `social` – Instagram-adressen som `ldbk.se/instagram` vidarebefordrar till
 
 All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
@@ -37,18 +38,16 @@ All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 | --------- | --------------------------------------------------------------------------- |
 | Website   | Öppnar `https://ldbk.se`                                                    |
 | Projects  | Öppnar `https://ldbk.se/projects` – en platshållarsida tills projekten finns (bara på webbsidan) |
-| Contact   | Öppnar `https://ldbk.se/contact.vcf` – telefonen erbjuder att spara kontakten |
+| Contact   | Öppnar `https://ldbk.se/contact` – ring, mejla, sms eller spara kontakten (`/contact.vcf`) |
 | About     | Öppnar `https://ldbk.se/about` – en platshållarsida tills texten finns          |
 | Instagram | Öppnar `https://ldbk.se/instagram`, som vidarebefordrar till Instagram        |
-| Call      | Ringer upp telefonnumret (bara på webbsidan)                                  |
-| Email     | Skapar ett mejl till e-postadressen (bara på webbsidan)                       |
-| SMS       | Skapar ett sms till telefonnumret (bara på webbsidan)                         |
+| Billing   | Öppnar `https://ldbk.se/billing` – faktureringsuppgifter med kopieringsknappar (bara på webbsidan) |
 
 - **Färger:** varje QR-kod har en egen färg på webbsidan (`color` i `src/lib/qr.ts`). Det tryckta visitkortet använder svarta koder.
-- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/website`, `/qr/projects`, `/qr/contact`, `/qr/about`, `/qr/instagram`, `/qr/call`, `/qr/email` och `/qr/sms`.
+- **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/website`, `/qr/projects`, `/qr/contact`, `/qr/about`, `/qr/instagram` och `/qr/billing`.
 - **Skriv ut visitkortet:** skriv ut startsidan från webbläsaren – varje sida blir exakt 85 × 55 mm (välj "Spara som PDF" för att få en fil till tryckeriet).
 - Website-, About-, Contact-, Projects- och Instagram-koderna fungerar först när sidan är publicerad på `ldbk.se`.
-- Kontaktkoden pekar på kontaktfilen på hemsidan, så kontaktuppgifterna kan ändras i `content.ts` utan att korten trycks om.
+- Kontaktkoden pekar på kontaktsidan, så kontaktuppgifterna kan ändras i `content.ts` utan att korten trycks om.
 - Alla QR-koder har samma storlek (version 3, 29 × 29 rutor) så att de ser likadana ut.
 
 ## Projektstruktur
@@ -61,6 +60,8 @@ src/
 │   ├── not-found.tsx   # 404-sida
 │   ├── projects/       # Platshållarsida för projekt
 │   ├── about/          # Platshållarsida för Om oss
+│   ├── contact/        # Ring, mejla, sms och spara kontakt
+│   ├── billing/        # Faktureringsuppgifter
 │   ├── qr/[type]/      # Nedladdningsbara QR-koder (SVG)
 │   ├── contact.vcf/    # Kontaktfil (etiketten "Contact")
 │   ├── globals.css     # Designsystem (Tailwind-tema: typsnitt, färger)
