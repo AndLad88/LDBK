@@ -33,28 +33,28 @@ export default async function HomePage() {
       <main className="flex min-h-svh flex-col items-center justify-center bg-white px-5 py-10 print:hidden">
         <header className="text-center">
           {/* TODO: Ersätt textloggan med en riktig logotyp (t.ex. next/image med SVG) */}
-          <h1 className="text-[clamp(4.5rem,20vw,9rem)] leading-none tracking-tighter">
+          <h1 className="text-[clamp(4.5rem,20vw,9rem)] leading-none tracking-tighter wide:text-[min(22svh,16vw)]">
             {site.name}
           </h1>
-          <p className="mt-[0.9em] text-[clamp(10px,2.2vw,13px)] uppercase tracking-[0.2em]">
+          <p className="mt-[0.9em] text-[clamp(10px,2.2vw,13px)] uppercase tracking-[0.2em] wide:mt-[2.2svh] wide:text-[max(12px,1.6svh)]">
             {site.tagline}
           </p>
         </header>
 
-        <div className="mt-5 w-full sm:mt-6">
+        <div className="mt-5 w-full sm:mt-6 wide:mt-[4svh]">
           {/* QR-koder på en rad: en kolumn per kod (antalet styrs av lib/qr.ts) */}
           <h2 className="sr-only">QR codes</h2>
           <ul
             style={{ "--cols": codes.length } as CSSProperties}
-            className="mx-auto grid w-full max-w-md grid-cols-[repeat(var(--cols),minmax(0,1fr))] gap-x-2 sm:w-fit sm:max-w-none sm:grid-cols-[repeat(var(--cols),auto)] sm:gap-x-5"
+            className="mx-auto grid w-full max-w-md grid-cols-[repeat(var(--cols),minmax(0,1fr))] gap-x-2 sm:w-fit sm:max-w-none sm:grid-cols-[repeat(var(--cols),auto)] sm:gap-x-5 wide:gap-x-[2.6svh]"
           >
             {codes.map((code) => (
               <li key={code.type}>
                 <figure className="flex flex-col items-center">
-                  <div className="w-full max-w-9 sm:w-12 sm:max-w-none">
+                  <div className="w-full max-w-9 sm:w-12 sm:max-w-none wide:w-[7svh]">
                     <QrImage svg={code.svg} label={code.description} />
                   </div>
-                  <figcaption className="mt-2 whitespace-nowrap text-[7px] uppercase tracking-normal sm:text-[9px] sm:tracking-[0.2em]">
+                  <figcaption className="mt-2 whitespace-nowrap text-[7px] uppercase tracking-normal sm:text-[9px] sm:tracking-[0.2em] wide:mt-[1.2svh] wide:text-[max(9px,1.05svh)]">
                     <a
                       href={code.href}
                       className="underline decoration-neutral-400 underline-offset-4 hover:decoration-black"

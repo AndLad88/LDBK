@@ -1,6 +1,13 @@
 @import "tailwindcss";
 
 /*
+ * Liggande datorskärmar (t.ex. 16:9 som 1280 × 720 eller 1920 × 1080).
+ * Här skalas innehållet efter skärmhöjden så att proportionerna blir
+ * desamma oavsett upplösning. Används som `wide:` i klasserna.
+ */
+@custom-variant wide (@media (orientation: landscape) and (min-width: 1024px));
+
+/*
  * Designsystem för LDBK.
  * Tailwind v4 konfigureras direkt i CSS via @theme (ersätter tailwind.config.js).
  * Strikt svart/vitt; gråskalor används sparsamt för ramar och sekundär text.
