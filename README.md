@@ -67,7 +67,7 @@ src/
 
 ### Designsystem
 
-Projektet använder Tailwind CSS v4, där temat konfigureras direkt i CSS i stället för i en `tailwind.config.js`. Typsnittet (`"Helvetica Neue", Helvetica, Arial, sans-serif`), färger och skarpa hörn definieras i `@theme`-blocket i `src/app/globals.css`.
+Projektet använder Tailwind CSS v4, där temat konfigureras direkt i CSS i stället för i en `tailwind.config.js`. Typsnittet (SF Mono via `ui-monospace`, med Menlo, Consolas m.fl. som reserv), färger och skarpa hörn definieras i `@theme`-blocket i `src/app/globals.css`.
 
 ## Driftsättning på Vercel
 

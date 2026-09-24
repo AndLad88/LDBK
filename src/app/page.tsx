@@ -36,7 +36,7 @@ export default async function HomePage() {
           <h1 className="text-[clamp(4.5rem,20vw,9rem)] leading-none tracking-tighter wide:text-[min(22svh,16vw)]">
             {site.name}
           </h1>
-          <p className="mt-[0.9em] text-[clamp(10px,2.2vw,13px)] uppercase tracking-[0.2em] wide:mt-[2.2svh] wide:text-[max(12px,1.6svh)]">
+          <p className="mt-[0.9em] text-[clamp(10px,2.2vw,13px)] uppercase tracking-[0.04em] sm:tracking-[0.2em] wide:mt-[2.2svh] wide:text-[max(12px,1.6svh)]">
             {site.tagline}
           </p>
         </header>

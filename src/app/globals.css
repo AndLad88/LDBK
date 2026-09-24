@@ -13,8 +13,14 @@
  * Strikt svart/vitt; gråskalor används sparsamt för ramar och sekundär text.
  */
 @theme {
-  /* Helvetica som standardfont för all text (utility-klassen font-sans) */
-  --font-sans: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*
+   * SF Mono som standardfont för all text (utility-klassen font-mono).
+   * SF Mono får inte bäddas in på webben, så det används när det finns på
+   * besökarens enhet (Apple). Övriga får närmast liknande monospace-typsnitt.
+   */
+  --font-mono:
+    ui-monospace, "SF Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    monospace;
 
   --color-black: #000000;
   --color-white: #ffffff;
@@ -29,7 +35,7 @@
 
 @layer base {
   html {
-    @apply bg-white font-sans text-black antialiased;
+    @apply bg-white font-mono text-black antialiased;
   }
 
   /* Rubriker är alltid feta, brödtext normal vikt */
