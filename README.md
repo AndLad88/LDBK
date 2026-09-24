@@ -34,7 +34,7 @@ All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 
 ## Språk
 
-Uppe till höger finns en språkväljare: **EN · DE · FR · ES · IT · SV**.
+Uppe till höger finns en språkväljare (rullgardinsmeny): **English, Deutsch, Français, Español, Italiano, Svenska**.
 
 - Alla texter på alla språk finns i **`src/lib/i18n.ts`** – ändra eller lägg till översättningar där.
 - Valt språk sparas i cookien `lang`. Vid första besöket används webbläsarens språk, annars engelska.
