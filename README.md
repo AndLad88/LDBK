@@ -44,6 +44,7 @@ All platshållartext är markerad med **`[PLATSHÅLLARE]`**.
 | Email     | Skapar ett mejl till e-postadressen (bara på webbsidan)                       |
 | SMS       | Skapar ett sms till telefonnumret (bara på webbsidan)                         |
 
+- **Färger:** varje QR-kod har en egen färg på webbsidan (`color` i `src/lib/qr.ts`). Det tryckta visitkortet använder svarta koder.
 - **Ladda ner QR-koderna** som SVG (vektor, bäst för tryck): `/qr/website`, `/qr/projects`, `/qr/contact`, `/qr/linkedin`, `/qr/instagram`, `/qr/call`, `/qr/email` och `/qr/sms`.
 - **Skriv ut visitkortet:** skriv ut startsidan från webbläsaren – varje sida blir exakt 85 × 55 mm (välj "Spara som PDF" för att få en fil till tryckeriet).
 - Website-, LinkedIn- och Instagram-koderna fungerar först när sidan är publicerad på `ldbk.se`.

@@ -23,7 +23,13 @@ function QrImage({ svg, label }: { svg: string; label: string }) {
 
 export default async function HomePage() {
   const codes = await Promise.all(
-    qrTypes.map(async (type) => ({ type, svg: await qrSvg(type), ...qrCodes[type] })),
+    qrTypes.map(async (type) => ({
+      type,
+      svg: await qrSvg(type),
+      // Svart variant till det tryckta visitkortet
+      monoSvg: await qrSvg(type, { mono: true }),
+      ...qrCodes[type],
+    })),
   );
   const cardCodes = codes.filter((code) => code.onCard);
 
@@ -83,7 +89,7 @@ export default async function HomePage() {
           {cardCodes.map((code) => (
             <li key={code.type}>
               <figure className="flex w-[17cqw] flex-col items-center">
-                <QrImage svg={code.svg} label={code.description} />
+                <QrImage svg={code.monoSvg} label={code.description} />
                 <figcaption className="mt-[2.5cqw] text-[2.2cqw] uppercase tracking-[0.15em]">
                   {code.label}
                 </figcaption>

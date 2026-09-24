@@ -39,6 +39,11 @@ type QrCode = {
   data: () => string;
   /** Om koden ska tryckas på visitkortets baksida (annars bara på webbsidan). */
   onCard: boolean;
+  /**
+   * QR-kodens färg på webbsidan. Välj mörka, mättade färger – QR-koder
+   * behöver hög kontrast mot vitt för att kunna skannas.
+   */
+  color: string;
 };
 
 /** Vad varje QR-kod innehåller och hur den beskrivs. Ordningen styr visningen. */
@@ -49,6 +54,7 @@ export const qrCodes: Record<QrType, QrCode> = {
     href: "/",
     data: () => site.url,
     onCard: true,
+    color: "#0e7490", // petrol
   },
   projects: {
     label: "Projects",
@@ -57,6 +63,7 @@ export const qrCodes: Record<QrType, QrCode> = {
     href: "/projects",
     data: () => `${site.url}/projects`,
     onCard: false,
+    color: "#b45309", // bärnsten
   },
   contact: {
     label: "Contact",
@@ -64,6 +71,7 @@ export const qrCodes: Record<QrType, QrCode> = {
     href: "/contact.vcf",
     data: buildVCard,
     onCard: true,
+    color: "#334155", // skiffergrå
   },
   linkedin: {
     label: "LinkedIn",
@@ -72,6 +80,7 @@ export const qrCodes: Record<QrType, QrCode> = {
     // Pekar på egen domän som vidarebefordrar (se next.config.ts)
     data: () => `${site.url}/linkedin`,
     onCard: true,
+    color: "#0a66c2", // LinkedIn-blå
   },
   instagram: {
     label: "Instagram",
@@ -80,6 +89,7 @@ export const qrCodes: Record<QrType, QrCode> = {
     // Pekar på egen domän som vidarebefordrar (se next.config.ts)
     data: () => `${site.url}/instagram`,
     onCard: true,
+    color: "#c13584", // Instagram-magenta
   },
   call: {
     label: "Call",
@@ -87,6 +97,7 @@ export const qrCodes: Record<QrType, QrCode> = {
     href: `tel:${contactCard.phone}`,
     data: () => `tel:${contactCard.phone}`,
     onCard: false,
+    color: "#15803d", // grön
   },
   email: {
     label: "Email",
@@ -94,6 +105,7 @@ export const qrCodes: Record<QrType, QrCode> = {
     href: `mailto:${contactCard.email}`,
     data: () => `mailto:${contactCard.email}`,
     onCard: false,
+    color: "#b91c1c", // röd
   },
   sms: {
     label: "SMS",
@@ -102,17 +114,19 @@ export const qrCodes: Record<QrType, QrCode> = {
     // SMSTO-formatet förstås av både iPhone och Android
     data: () => `SMSTO:${contactCard.phone}:`,
     onCard: false,
+    color: "#6d28d9", // violett
   },
 };
 
 export const qrTypes = Object.keys(qrCodes) as QrType[];
 
-/** Skapar QR-koden som SVG – svart på transparent, utan marginal. */
-export function qrSvg(type: QrType) {
+/** Skapar QR-koden som SVG – i kodens färg på transparent, utan marginal. */
+export function qrSvg(type: QrType, { mono = false }: { mono?: boolean } = {}) {
   return QRCode.toString(qrCodes[type].data(), {
     type: "svg",
     margin: 0,
     errorCorrectionLevel: "M",
-    color: { dark: "#000000", light: "#ffffff00" },
+    // mono: svart kod, t.ex. för det tryckta visitkortet
+    color: { dark: mono ? "#000000" : qrCodes[type].color, light: "#ffffff00" },
   });
 }
